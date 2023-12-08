@@ -109,14 +109,14 @@ const mentor = [
     subtitle: "Participant",
     image: "assets/images/experience-page/amazonml.jpg",
     desp: "My team placed #125 out of 5000 teams that participated in the hackathon.",
-    href: "https://www.amazonmlchallenge.com/",
+    href: "https://www.hackerearth.com/challenges/competitive/amazon-ml-challenge-2023/",
   },
   {
     title: "Amazon ML Challenge 2021",
     subtitle: "Participant",
     image: "assets/images/experience-page/amazonml.jpg",
     desp: "My team placed 111th place out of 3600+ teams.",
-    href: "https://www.amazonmlchallenge.com/",
+    href: "https://www.hackerearth.com/challenges/competitive/amazon-ml-challenge/",
   },
   {
     title: "DTU - BITGRIT Viral Tweets Prediction Hackathon 2021",
@@ -130,7 +130,7 @@ const mentor = [
     subtitle: "Participant (Finalist)",
     image: "assets/images/experience-page/apscript.jpg",
     desp: "My team went till the finals.",
-    href: "",
+    href: "https://apscript.devfolio.co/",
   },
 ];
 
