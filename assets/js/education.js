@@ -27,7 +27,7 @@ const moocscards = [
   {
     title: "Fake News Detection with Machine Learning (Coursera Guided Project)",
     cardImage: "assets/images/education-page/coursera2.svg",
-    moocLink: "https://www.udacity.com/course/intro-to-html-and-css--ud001",
+    moocLink: "https://www.coursera.org/account/accomplishments/verify/3E3NYW343M3R?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=project",
   },
 ];
 
