@@ -246,6 +246,54 @@
             font-style: italic;
             font-size: 0.8rem;
         }
+
+        /* Awards & Certs Styles */
+        .award-card,
+        .cert-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover,
+        .cert-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .award-icon,
+        .cert-icon {
+            color: #ffeb3b;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .award-info h4,
+        .cert-info h4 {
+            margin: 0 0 0.3rem 0;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .award-info p,
+        .cert-info p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .highlight-text {
+            color: #fff;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -470,15 +518,6 @@
                 </div>
             `,
             'PAPERS': generatePapersHTML(),
-            'WORK': `
-                <div class="content-section">
-                    <h3>Professional Experience</h3>
-                    <ul>
-                        <li><strong>Research Fellow @ Microsoft Research India:</strong> Currently working on cutting-edge problems in Natural Language Processing (NLP) and AI agents.</li>
-                        <li><strong>Ex-PwC India:</strong> Gained valuable industry experience in technology consulting and implementation.</li>
-                    </ul>
-                </div>
-            `,
             'SKILLS': `
                 <div class="content-section">
                     <h3>Technical Arsenal</h3>
@@ -581,6 +620,125 @@
                     </div>
                 </div>
             `,
+            'AWARDS': `
+                <div class="content-section">
+                    <h3>Recognition & Honors</h3>
+                    
+                    <div class="award-card">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path><path d="M12 2a4 4 0 0 1 4 4v3H8V6a4 4 0 0 1 4-4z"></path></svg></div>
+                        <div class="award-info">
+                            <h4>Kahani @ Global Conferences</h4>
+                            <p>Presented work at <span class="highlight-text">BeyondCHI 2025</span>, <span class="highlight-text">IndiaHCI 2025</span>, and the <span class="highlight-text">Cohere4AI Monthly Gathering</span> (Nov 2024).</p>
+                        </div>
+                    </div>
+
+                    <div class="award-card">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
+                        <div class="award-info">
+                            <h4>McKinsey Next Generation Women Leaders</h4>
+                            <p>One of <span class="highlight-text">300 selected globally</span> across the APAC region for the <span class="highlight-text">Next Generation Women Leaders - APAC 2025</span> program.</p>
+                        </div>
+                    </div>
+
+                    <div class="award-card">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                        <div class="award-info">
+                            <h4>Advancing Inclusion Scholar</h4>
+                            <p>Selected for <span class="highlight-text">Grace Hopper Celebrations India</span> in both <span class="highlight-text">2024 and 2025</span>.</p>
+                        </div>
+                    </div>
+
+                    <div class="award-card">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 3.333 3 5 1.236 2.06 1.236 3.48 0 5.5-1.236 2.02-1.236 3.48 0 5.5.347.578.5 1 .5 1.5a2.5 2.5 0 0 1-5 0c0-.5.153-.922.5-1.5z"></path></svg></div>
+                        <div class="award-info">
+                            <h4>Social Impact Award</h4>
+                            <p>Winner at <span class="highlight-text">Microsoft Research EMEA Hackathon 2024</span> for <span class="highlight-text">Kisaan Rafiki</span>, leading the low-resource ASR and TTS team.</p>
+                        </div>
+                    </div>
+
+                    <div class="award-card">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg></div>
+                        <div class="award-info">
+                            <h4>GenAI InnovateHer Datathon</h4>
+                            <p><span class="highlight-text">Led and won</span> the 2024 competition, focused on empowering the visually impaired with AI.</p>
+                        </div>
+                    </div>
+
+                    <div class="award-card">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></div>
+                        <div class="award-info">
+                            <h4>Keynote Speaker</h4>
+                            <p>Invited guest keynote speaker at alma mater multiple times.</p>
+                        </div>
+                    </div>
+
+                    <div class="award-card" style="margin-bottom: 0;">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M7 8h10"></path><path d="M7 12h10"></path><path d="M7 16h10"></path></svg></div>
+                        <div class="award-info">
+                            <h4>Philately</h4>
+                            <p>Multiple competitive awards at <span class="highlight-text">Regional, National, and International</span> levels.</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'CERTIFICATIONS': `
+                <div class="content-section">
+                    <h3>Milestones & Certifications</h3>
+                    
+                    <div class="cert-card">
+                        <div class="cert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                        <div class="cert-info">
+                            <h4>Certified Scrum Product Owner (CSPO)</h4>
+                            <p>Credential from <span class="highlight-text">Scrum Alliance</span>.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
+                        <div class="cert-info">
+                            <h4>Google Developers ML Bootcamp</h4>
+                            <p>Selected as an apprentice in the <span class="highlight-text">ML Bootcamp Cohort - 2</span>.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                        <div class="cert-info">
+                            <h4>Founder of AI Club</h4>
+                            <p>Founded and led <span class="highlight-text">Amrita Vishwa Vidyapeetham’s first AI club</span>, managing strategy and core team.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
+                        <div class="cert-info">
+                            <h4>Amazon ML Challenge 2021</h4>
+                            <p>Ranked <span class="highlight-text">111th</span> out of <span class="highlight-text">3,600+ teams</span> globally.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
+                        <div class="cert-info">
+                            <h4>Viral Tweets Prediction Hackathon</h4>
+                            <p>Ranked <span class="highlight-text">11th place</span> in the DTU-BITGRIT challenge (2021).</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3z"></path></svg></div>
+                        <div class="cert-info">
+                            <h4>Core Academic Specializations</h4>
+                            <ul>
+                                <li style="color: #bbb; font-size: 0.9rem; margin-bottom: 0.4rem;"><span class="highlight-text">DeepLearning.AI Deep Learning Specialization</span>, Coursera</li>
+                                <li style="color: #bbb; font-size: 0.9rem; margin-bottom: 0.4rem;"><span class="highlight-text">IBM Data Science Specialization</span>, Coursera</li>
+                                <li style="color: #bbb; font-size: 0.9rem; margin-bottom: 0.4rem;"><span class="highlight-text">Machine Learning – Stanford Academy</span>, Coursera</li>
+                                <li style="color: #bbb; font-size: 0.9rem;"><span class="highlight-text">Complete Data Science Bootcamp</span>, Udemy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `,
             'AI': `
                  <div class="content-section">
                     <h3>Artificial Intelligence Focus</h3>
@@ -605,6 +763,7 @@
                         <li>Unpacking the complexities of LLMs.</li>
                         <li>Experiences as a researcher in the fast-paced AI world.</li>
                         <li>Tutorials and insights on NLP techniques.</li>
+                        <li>Latest updates from MSR and personal projects.</li>
                     </ul>
                 </div>
             `
