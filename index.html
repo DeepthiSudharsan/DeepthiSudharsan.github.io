@@ -58,24 +58,74 @@
             <section class="timeline-section">
                 <h2 class="section-title">Latest Updates</h2>
                 <div class="timeline">
+                    <!-- Expanded Recent Items -->
                     <div class="timeline-item">
                         <div class="date">Jan 2026</div>
-                        <div class="content">Launched new portfolio design</div>
+                        <div class="content">Paper on <strong>Agentic Visual Storytelling</strong> accepted at
+                            <strong>AAAI EGSAI 2026</strong>.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="date">Dec 2025</div>
-                        <div class="content">Published research on Agentic Workflows</div>
+                        <div class="content">Joined <strong>InvestCloud</strong> as a Data Scientist in the Wealth
+                            Management team.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="date">Nov 2025</div>
-                        <div class="content">Speaker at TechConf 2025</div>
+                        <div class="content">Selected for <strong>McKinsey & Company’s</strong> Next Generation Women
+                            Leaders APAC 2025.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="date">Oct 2025</div>
-                        <div class="content">Joined The Machine Learning Company</div>
+                        <div class="content">Paper accepted at <strong>MMFood 2025</strong> on Indigenous Indian
+                            Datasets.</div>
+                    </div>
+
+                    <!-- Collapsible Past Items -->
+                    <div class="timeline-past" id="timelinePast">
+                        <div class="timeline-item">
+                            <div class="date">Sep 2025</div>
+                            <div class="content">Selected as an <strong>Advancing Inclusion Scholar</strong> for Grace
+                                Hopper Celebration India 2025.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="date">Aug 2025</div>
+                            <div class="content">Presented research at <strong>IndiaHCI 2025</strong> and
+                                <strong>BeyondCHI 2025</strong>.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="date">Jul 2025</div>
+                            <div class="content">Completed Research Fellowship at <strong>Microsoft Research
+                                    India</strong>.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="date">Nov 2024</div>
+                            <div class="content">Presented <em>Kahani</em> at the Cohere4AI Monthly Gathering.</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-toggle-wrapper">
+                        <button class="timeline-toggle" id="timelineToggle" onclick="toggleTimeline()">
+                            See Past Updates
+                        </button>
                     </div>
                 </div>
             </section>
+
+            <script>
+                function toggleTimeline() {
+                    const past = document.getElementById('timelinePast');
+                    const btn = document.getElementById('timelineToggle');
+                    past.classList.toggle('expanded');
+
+                    if (past.classList.contains('expanded')) {
+                        btn.innerText = 'Show Less';
+                        btn.classList.add('active');
+                    } else {
+                        btn.innerText = 'See Past Updates';
+                        btn.classList.remove('active');
+                    }
+                }
+            </script>
 
             <!-- Contact / Footer -->
             <section class="contact-section">
