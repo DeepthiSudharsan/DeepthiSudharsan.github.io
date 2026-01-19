@@ -17,6 +17,12 @@
             text-align: left;
         }
 
+        /* Enable scrolling for this page */
+        body {
+            overflow-y: auto !important;
+            height: auto !important;
+        }
+
         .back-btn {
             display: inline-block;
             margin-bottom: 2rem;
@@ -38,11 +44,139 @@
             text-transform: capitalize;
         }
 
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
         p {
             line-height: 1.8;
             color: #ccc;
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: 'â€¢';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-color);
+        }
+
+        /* Papers Section Styles */
+        .paper-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .paper-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .paper-header {
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .paper-year {
+            font-weight: 400;
+            color: var(--accent-color);
+            margin-left: 0.5rem;
+            font-size: 0.9em;
+        }
+
+        .paper-tldr {
+            font-size: 1rem;
+            color: #ddd;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .paper-abstract-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .paper-abstract {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .paper-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid #555;
+            border-radius: 6px;
+            color: #ccc;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .action-btn:hover {
+            border-color: var(--accent-color);
+            color: #fff;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .link-btn {
+            text-decoration: none;
+            /* Override default a underline */
         }
     </style>
 </head>
@@ -52,23 +186,232 @@
         <a href="index.html" class="back-btn">&larr; Back to Home</a>
         <h1 id="pageTitle">Loading...</h1>
         <div id="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum.</p>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                explicabo.</p>
+            <!-- Dynamic Content will be injected here -->
+        </div>
+
+        <!-- Contact Section (Common Footer) -->
+        <div style="margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #333; text-align: center;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: #fff;">Get
+                In Touch</h2>
+            <p style="color: #888; margin-bottom: 2rem;">Open for collaborations, speaking opportunities, and coffee
+                chats.</p>
+            <a href="mailto:hello@deepthi.com" style="
+                display: inline-block;
+                padding: 1rem 3rem;
+                border: 1px solid #fff;
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                transition: all 0.3s;" onmouseover="this.style.background='#fff'; this.style.color='#000';"
+                onmouseout="this.style.background='transparent'; this.style.color='#fff';">Say Hello</a>
         </div>
     </div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        const title = params.get('title') || 'Details';
-        document.getElementById('pageTitle').innerText = title;
-        document.title = `${title} | Deepthi Sudharsan`;
+        const titleKey = (params.get('title') || 'Details').toUpperCase();
+
+        const titleDisplay = params.get('title') || 'Details';
+        document.getElementById('pageTitle').innerText = titleDisplay;
+        document.title = `${titleDisplay} | Deepthi Sudharsan`;
+
+        // Papers Data
+        const papersData = [
+            {
+                title: "Kahani: Culturally-Nuanced Visual Storytelling Tool for Non-Western Cultures",
+                year: 2025,
+                tldr: "A tool bridging the gap in AI representation by enabling culturally-nuanced visual storytelling for non-western cultures.",
+                abstract: "Accepted at COMPASS '25. This paper explores the intersection of AI, culture, and storytelling, proposing a new tool 'Kahani' that allows users to create visual stories that respect and reflect non-western cultural nuances.",
+                citation: "Sudharsan, D., et al. (2025). Kahani: Culturally-Nuanced Visual Storytelling Tool for Non-Western Cultures. COMPASS '25.",
+                link: "https://dl.acm.org/conference/compass"
+            },
+            {
+                title: "ELR-1000: A Community-Generated Dataset for Endangered Indic Indigenous Languages",
+                year: 2025,
+                tldr: "A community-generated dataset aimed at preserving endangered Indic indigenous languages.",
+                abstract: "Published in ACL Anthology 2025. This work presents ELR-1000, a dataset created through community efforts to document and preserve endangered indigenous languages of India, facilitating future NLP research.",
+                citation: "Sudharsan, D., et al. (2025). ELR-1000: A Community-Generated Dataset for Endangered Indic Indigenous Languages. IJCNLP 2025.",
+                link: "https://aclanthology.org/2025.ijcnlp-long.131/"
+            },
+            {
+                title: "The role of synthetic data in Multilingual, Multi-cultural AI systems: Lessons from Indic Languages",
+                year: 2025,
+                tldr: "Investigating synthetic, culturally contextualized datasets to improve multilingual AI, introducing 'Updesh' for Indic languages.",
+                abstract: "Published in September 2025. This work investigates the use of synthetic, locally grounded datasets to improve multilingual AI performance. It introduces 'Updesh', a large-scale instruction-following dataset across 13 Indian languages, showing significant gains in generative tasks.",
+                citation: "Sudharsan, D., et al. (2025). The role of synthetic data in Multilingual, Multi-cultural AI systems: Lessons from Indic Languages. arXiv preprint arXiv:2509.xxxxx.",
+                link: "https://arxiv.org/abs/2509.xxxxx"
+            },
+            {
+                title: "What's Not on the Plate? Rethinking Food Computing through Indigenous Indian Datasets",
+                year: 2025,
+                tldr: "A multimodal dataset of indigenous recipes to address representational bias in food computing.",
+                abstract: "Accepted at ACMMM 2025 Multi-modal Food Computing Workshop. This paper introduces a comprehensive multimodal dataset of 1,000 indigenous recipes from remote Indian regions, collected via a participatory model to address gaps in food computing.",
+                citation: "Sudharsan, D., et al. (2025). What's Not on the Plate? Rethinking Food Computing through Indigenous Indian Datasets. ACMMM 2025 Workshop.",
+                link: "https://arxiv.org/abs/25XX.XXXXX"
+            },
+            {
+                title: "Coconut Tree Detection Using Deep Learning Models",
+                year: 2023,
+                tldr: "Deep learning strategies to detect and segment coconut trees for rapid food supply evaluation after disasters.",
+                abstract: "Published in 'Innovations in Machine and Deep Learning'. This study compares various object detection models like Faster RCNN, DETR, and YOLOv5 for detecting coconut trees in aerial imagery.",
+                citation: "Sudharsan, D., et al. (2023). Coconut Tree Detection Using Deep Learning Models. Innovations in Machine and Deep Learning, Springer.",
+                link: "https://www.researchgate.net/publication/368819543_Coconut_Tree_Detection_Using_Deep_Learning_Models"
+            },
+            {
+                title: "Analysis of Machine Learning and Deep Learning Algorithms for Detection of Brain Disorders Using MRI Data",
+                year: 2023,
+                tldr: "Comparative analysis of ML and DL algorithms for detecting brain disorders from MRI scans.",
+                abstract: "Published in 'Artificial Intelligence on Medical Data'. This paper analyzes the performance of various machine learning and deep learning algorithms in identifying brain disorders using Magnetic Resonance Imaging data.",
+                citation: "Sudharsan, D., et al. (2023). Analysis of Machine Learning and Deep Learning Algorithms for Detection of Brain Disorders Using MRI Data. Artificial Intelligence on Medical Data, Springer.",
+                link: "https://link.springer.com/chapter/10.1007/978-981-19-0151-5_4"
+            },
+            {
+                title: "DistilRoBERTa Based Sentence Embedding for Rhetorical Role Labelling of Legal Case Documents",
+                year: 2021,
+                tldr: "Using DistilRoBERTa for identifying rhetorical roles in legal documents.",
+                abstract: "Published in CEUR Workshop Proceedings. This paper proposes a DistilRoBERTa-based approach for sentence embedding to improve rhetorical role labelling in legal case documents.",
+                citation: "Sudharsan, D. (2021). DistilRoBERTa Based Sentence Embedding for Rhetorical Role Labelling of Legal Case Documents. CEUR-WS.org.",
+                link: "http://ceur-ws.org/Vol-3041/"
+            }
+        ];
+
+        // Helper to generate Papers HTML
+        function generatePapersHTML() {
+            // Sort by year (descending) just in case, though they are already sorted
+            const sortedPapers = papersData.sort((a, b) => b.year - a.year);
+
+            return `
+                <div class="content-section">
+                    <h3>Academic Research</h3>
+                    <div class="papers-list">
+                        ${sortedPapers.map((paper, index) => `
+                            <div class="paper-card">
+                                <div class="paper-header">
+                                    <h4 class="paper-title">${paper.title} <span class="paper-year">(${paper.year})</span></h4>
+                                </div>
+                                <p class="paper-tldr"><strong>TL;DR:</strong> ${paper.tldr}</p>
+                                
+                                <div class="paper-abstract-container" id="abstract-${index}" style="display: none;">
+                                    <p class="paper-abstract">${paper.abstract}</p>
+                                </div>
+
+                                <div class="paper-actions">
+                                    <button class="action-btn" onclick="copyCitation('${index}')">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                        Copy Citation
+                                    </button>
+                                    <button class="action-btn" onclick="toggleAbstract('${index}')">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                                        Read Abstract
+                                    </button>
+                                    <a href="${paper.link}" target="_blank" class="action-btn link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        View Paper
+                                    </a>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Global functions for buttons
+        window.toggleAbstract = function (index) {
+            const el = document.getElementById(`abstract-${index}`);
+            if (el.style.display === 'none') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        };
+
+        window.copyCitation = function (index) {
+            const paper = papersData[index];
+            navigator.clipboard.writeText(paper.citation).then(() => {
+                alert('Citation copied to clipboard!');
+            });
+        };
+
+        // Data derived from public profile (Bento.me/MSR/GitHub)
+        const cardsContent = {
+            'PROJECTS': `
+                <div class="content-section">
+                    <h3>Technical Projects</h3>
+                    <ul>
+                        <li><strong>Kahani:</strong> A culturally-nuanced visual storytelling tool designed for non-western cultures, focusing on bridging the gap in AI representation.</li>
+                        <li><strong>Stock Prediction Engine:</strong> A machine learning model designed to analyze market trends and predict stock performance with high accuracy.</li>
+                        <li><strong>Rainfall Prediction System:</strong> Leveraged historical weather data to build predictive models for regional rainfall patterns.</li>
+                        <li><strong>Image-to-Text Translation:</strong> Developed a multimodal system capable of converting visual information into descriptive text, enhancing accessibility.</li>
+                    </ul>
+                </div>
+            `,
+            'PAPERS': generatePapersHTML(),
+            'WORK': `
+                <div class="content-section">
+                    <h3>Professional Experience</h3>
+                    <ul>
+                        <li><strong>Research Fellow @ Microsoft Research India:</strong> Currently working on cutting-edge problems in Natural Language Processing (NLP) and AI agents.</li>
+                        <li><strong>Ex-PwC India:</strong> Gained valuable industry experience in technology consulting and implementation.</li>
+                    </ul>
+                </div>
+            `,
+            'SKILLS': `
+                <div class="content-section">
+                    <h3>Core Competencies</h3>
+                    <ul>
+                        <li><strong>AI & Machine Learning:</strong> Large Language Models (LLMs), Natural Language Processing (NLP), Multimodal AI.</li>
+                        <li><strong>Research:</strong> Computational Social Science, Low-Resource NLP.</li>
+                        <li><strong>Programming:</strong> Python, PyTorch, JavaScript, React.</li>
+                    </ul>
+                </div>
+            `,
+            'AI': `
+                 <div class="content-section">
+                    <h3>Artificial Intelligence Focus</h3>
+                    <p>My work centers on the democratization of AI, specifically focusing on:</p>
+                    <ul>
+                        <li><strong>Low-Resource NLP:</strong> Making AI accessible for languages and cultures often underrepresented in mainstream datasets.</li>
+                        <li><strong>AI Agents:</strong> Building autonomous systems capable of complex reasoning and task execution.</li>
+                    </ul>
+                </div>
+            `,
+            'BOOKS': `
+                <div class="content-section">
+                    <h3>Reading List</h3>
+                    <p>Exploring the intersection of technology, sociology, and philosophy. <em>(Content to be populated)</em></p>
+                </div>
+            `,
+            'MISC': `
+                <div class="content-section">
+                    <h3>Writes & Thoughts</h3>
+                    <p>I actively write on <a href="https://medium.com/@deepthisudharsan" target="_blank">Medium</a> about:</p>
+                    <ul>
+                        <li>Unpacking the complexities of LLMs.</li>
+                        <li>Experiences as a researcher in the fast-paced AI world.</li>
+                        <li>Tutorials and insights on NLP techniques.</li>
+                    </ul>
+                </div>
+            `
+        };
+
+        const contentDiv = document.getElementById('content');
+
+        // Normalize key to handle case variations
+        let matchedKey = Object.keys(cardsContent).find(k => titleKey.includes(k)) || 'DEFAULT';
+
+        if (cardsContent[titleKey]) {
+            contentDiv.innerHTML = cardsContent[titleKey];
+        } else if (cardsContent[matchedKey] && matchedKey !== 'DEFAULT') {
+            contentDiv.innerHTML = cardsContent[matchedKey];
+        } else {
+            // Default Fallback
+            contentDiv.innerHTML = `
+                <p>Welcome to the <strong>${titleDisplay}</strong> section. Here you will find detailed information, case studies, and resources related to this topic.</p>
+                <p><em>(Detailed content for this section is currently being updated.)</em></p>
+            `;
+        }
     </script>
 </body>
 

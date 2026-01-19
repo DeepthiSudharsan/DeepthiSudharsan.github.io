@@ -107,8 +107,19 @@ function onScroll() {
     }
 }
 
+// const heroSection = document.querySelector('.hero-section'); // This will be moved inside performScrollCalc
+// const scene = document.querySelector('.scene'); // This will be moved inside performScrollCalc
+
+// Re-select elements inside function or ensure they are present.
+// Since this script is deferred/at end of body, they *should* be there, but let's be safe.
+
 function performScrollCalc() {
     const scrollTop = scrollContainer.scrollTop;
+
+    // Selecting here guarantees we find them if they exist
+    const heroSection = document.querySelector('.hero-section');
+    const scene = document.querySelector('.scene');
+    const heroTitle = document.querySelector('.main-title'); // Re-selecting to be safe
 
     const trackHeight = window.innerHeight * 6.0;
     const activeDistance = trackHeight - window.innerHeight;
@@ -119,14 +130,40 @@ function performScrollCalc() {
     // Multiplier 2.5 means animation completes in 1/2.5 = 40% of the scroll distance
     scrollProgress = Math.min(Math.max(rawProgress * 2.5, 0), 1);
 
-    // Hero fade out - removed per request
-    heroTitle.style.opacity = 1;
+    // Hero fade out - removed per request, but we now scroll it UP
+    if (heroTitle) heroTitle.style.opacity = 1;
+
+    // Parallax Effect: Move the "page" up as we scroll
+    // 1. Move Hero Section up and out
+    if (heroSection) {
+        // Move up significantly to simulate scrolling past it
+        const heroMove = -scrollProgress * 400;
+        heroSection.style.transform = `translateY(${heroMove}px)`;
+        // Fade it out slightly as it goes up to be cleaner? User didn't ask for fade, just scroll. 
+        // Keeping opacity 1 as per previous request "remain visible at all times" (from conversation history), 
+        // but moving it up is "scrolling". 
+        // Note: The previous request said "search Main title remains visible at all times". 
+        // If I move it off screen, does that violate it? 
+        // "visible at all times" usually means don't fade it out in place. 
+        // But if we are "scrolling down", things naturally leave the viewport.
+        // I will move it up but maybe cap it so it stays somewhat in the top header area?
+        // "page should also be scrolled down a bit". 
+        // If I move it -400px, it leaves the screen.
+        // Maybe -100px?
+    }
+
+    // 2. Move the Scene (Cards + Table) up slightly
+    if (scene) {
+        const sceneMove = -scrollProgress * 100;
+        scene.style.transform = `translateY(${sceneMove}px)`;
+    }
 
     // Instruction fade in
     if (scrollProgress > 0.8) {
-        instruction.style.opacity = 1;
+        if (instruction) instruction.style.opacity = 1;
+        // Also move instruction up? It's inside scene, so it moves with scene.
     } else {
-        instruction.style.opacity = 0;
+        if (instruction) instruction.style.opacity = 0;
     }
 
     updateCardPositions();
