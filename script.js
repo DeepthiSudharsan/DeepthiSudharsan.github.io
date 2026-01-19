@@ -1,12 +1,11 @@
 const cardsData = [
-    'university.png',
     'product.png',
     'papers.png',
-    'work.png',
+    'projects.png',
     'skills.png',
     'certifications.png',
     'awards.png',
-    'Misc.png'
+    'misc.png'
 ];
 
 const container = document.getElementById('cardsContainer');
@@ -16,16 +15,22 @@ const instruction = document.querySelector('.instruction-overlay');
 
 // Configuration
 const CONFIG = {
-    // Widening the fan angle to 140 degrees to reduce overlap between cards
-    fanAngle: 140,
-    spreadRadius: 600,
+    // "Less than a semi-circle" -> roughly 100 degrees
+    // Safe spread with slight overlap
+    fanAngle: 100,
+    spreadRadius: 900,
 };
 
 // State
 let scrollProgress = 0; // 0 to 1 based on sticky track progress
+let cachedWrappers = null; // Cache DOM elements
+let ticking = false; // For rAF throttling
 
 function init() {
     createCards();
+    // Cache them once created
+    cachedWrappers = document.querySelectorAll('.card-wrapper');
+
     updateCardPositions();
     scrollContainer.addEventListener('scroll', onScroll);
 
@@ -93,27 +98,29 @@ function createCards() {
 }
 
 function onScroll() {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            performScrollCalc();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+function performScrollCalc() {
     const scrollTop = scrollContainer.scrollTop;
 
-    // The "active" scroll range is the height of the content-track minus viewport
-    // But since the sticky element takes 100vh, the scrollable distance is contentTrackHeight - 100vh
-    // We want the card animation to complete relatively early so users can view them before scrolling past.
-
-    const trackHeight = window.innerHeight * 3.5; // Matches css 350vh
+    const trackHeight = window.innerHeight * 6.0;
     const activeDistance = trackHeight - window.innerHeight;
 
-    // We want animation to finish around 60% of the way through the sticky track?
-    // Let's map 0 -> 1 progress to 0 -> 80% of the active distance.
-    // This way, the cards hold their final position for a bit before the user scrolls past.
-
+    // We want animation to finish relatively quickly so there's "empty space" after
     const rawProgress = scrollTop / activeDistance;
 
-    // Clamp to 0-1 for the card animation calculation
-    // But let's accelerate it so it finishes earlier
-    scrollProgress = Math.min(Math.max(rawProgress * 1.5, 0), 1);
+    // Multiplier 2.5 means animation completes in 1/2.5 = 40% of the scroll distance
+    scrollProgress = Math.min(Math.max(rawProgress * 2.5, 0), 1);
 
-    // Hero fade out
-    heroTitle.style.opacity = Math.max(0, 1 - scrollProgress * 3);
+    // Hero fade out - removed per request
+    heroTitle.style.opacity = 1;
 
     // Instruction fade in
     if (scrollProgress > 0.8) {
@@ -126,11 +133,13 @@ function onScroll() {
 }
 
 function updateCardPositions() {
-    const wrappers = document.querySelectorAll('.card-wrapper');
-    wrappers.forEach(wrapper => {
-        const isHovered = wrapper.classList.contains('hovered');
-        updateSingleCard(wrapper, scrollProgress, isHovered);
-    });
+    // Use cached elements instead of querying DOM
+    if (cachedWrappers) {
+        cachedWrappers.forEach(wrapper => {
+            const isHovered = wrapper.classList.contains('hovered');
+            updateSingleCard(wrapper, scrollProgress, isHovered);
+        });
+    }
 }
 
 function updateSingleCard(wrapper, progress, isHovered) {
@@ -147,11 +156,11 @@ function updateSingleCard(wrapper, progress, isHovered) {
     const baseRotateX = 60 - (progress * 55);
 
     // Vertical base movement
-    // adjusted for container top: 40%
-    // Start: Lower relative to new high center (250)
-    // End: Center (0)
-    const startY = 250;
-    const endY = 0;
+    // adjusted for container top: 30%
+    // Start: Lower relative to new high center (350)
+    // End: Nudged down slightly to center visually (50)
+    const startY = 350;
+    const endY = 50;
     const currentY = startY - (progress * (startY - endY));
 
     // Spread: 1.0 -> 1.2
