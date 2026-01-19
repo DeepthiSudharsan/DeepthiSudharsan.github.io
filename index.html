@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepthi Sudharsan | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="viewport">
+        <div class="scroll-container">
+
+            <!-- Sticky Track for the 3D Scene -->
+            <div class="content-track">
+                <div class="sticky-scene">
+                    <section class="hero-section">
+                        <h1 class="main-title">Deepthi Sudharsan</h1>
+                        <p class="subtitle">Scroll to explore the journey</p>
+                    </section>
+
+                    <div class="scene">
+                        <div class="table-surface"></div>
+                        <div class="cards-container" id="cardsContainer">
+                            <!-- Cards will be injected here by JS -->
+                        </div>
+                        <div class="instruction-overlay">Select a card</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content flowing naturally after the 3D scene unpins -->
+
+            <!-- Experience Ticker -->
+            <section class="ticker-section">
+                <div class="ticker-wrap">
+                    <div class="ticker">
+                        <div class="ticker__item">InvestCloud</div>
+                        <div class="ticker__item">Microsoft</div>
+                        <div class="ticker__item">PwC</div>
+                        <div class="ticker__item">The Machine Learning Company</div>
+                        <!-- Duplicated for seamless loop -->
+                        <div class="ticker__item">InvestCloud</div>
+                        <div class="ticker__item">Microsoft</div>
+                        <div class="ticker__item">PwC</div>
+                        <div class="ticker__item">The Machine Learning Company</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News / Updates Timeline -->
+            <section class="timeline-section">
+                <h2 class="section-title">Latest Updates</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="date">Jan 2026</div>
+                        <div class="content">Launched new portfolio design</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="date">Dec 2025</div>
+                        <div class="content">Published research on Agentic Workflows</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="date">Nov 2025</div>
+                        <div class="content">Speaker at TechConf 2025</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="date">Oct 2025</div>
+                        <div class="content">Joined The Machine Learning Company</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact / Footer -->
+            <section class="contact-section">
+                <h2>Get In Touch</h2>
+                <p>Open for collaborations, speaking opportunities, and coffee chats.</p>
+                <a href="mailto:hello@deepthi.com" class="contact-btn">Say Hello</a>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
