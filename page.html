@@ -240,7 +240,9 @@
                 tldr: "Investigating synthetic, culturally contextualized datasets to improve multilingual AI, introducing 'Updesh' for Indic languages.",
                 abstract: "Published in September 2025. This work investigates the use of synthetic, locally grounded datasets to improve multilingual AI performance. It introduces 'Updesh', a large-scale instruction-following dataset across 13 Indian languages, showing significant gains in generative tasks.",
                 citation: "Sudharsan, D., et al. (2025). The role of synthetic data in Multilingual, Multi-cultural AI systems: Lessons from Indic Languages. arXiv preprint arXiv:2509.xxxxx.",
-                link: "https://arxiv.org/abs/2509.xxxxx"
+                link: "https://arxiv.org/abs/2509.xxxxx",
+                huggingface_link: "https://huggingface.co/datasets/microsoft/Updesh_beta",
+                aikosh_link: "https://aikosh.indiaai.gov.in/home/datasets/details/updesh.html"
             },
             {
                 title: "What's Not on the Plate? Rethinking Food Computing through Indigenous Indian Datasets",
@@ -283,7 +285,7 @@
 
             return `
                 <div class="content-section">
-                    <h3>Academic Research</h3>
+                    <h3>Research</h3>
                     <div class="papers-list">
                         ${sortedPapers.map((paper, index) => `
                             <div class="paper-card">
@@ -309,6 +311,12 @@
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                         View Paper
                                     </a>
+                                    ${paper.huggingface_link ? `<a href="${paper.huggingface_link}" target="_blank" class="action-btn link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg> Hugging Face
+                                    </a>` : ''}
+                                    ${paper.aikosh_link ? `<a href="${paper.aikosh_link}" target="_blank" class="action-btn link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg> AIKosh
+                                    </a>` : ''}
                                 </div>
                             </div>
                         `).join('')}
