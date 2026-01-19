@@ -178,6 +178,74 @@
             text-decoration: none;
             /* Override default a underline */
         }
+
+        /* Skills Page Styles */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .skill-category h4 {
+            margin: 0 0 1.2rem 0;
+            color: #ffeb3b;
+            font-size: 1.2rem;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skill-category h4 svg {
+            color: #ffeb3b;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 0.9rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #ddd;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .skill-tag.proficient {
+            border-color: rgba(255, 215, 0, 0.2);
+            background: rgba(255, 215, 0, 0.03);
+        }
+
+        .skill-tag.beginner {
+            opacity: 0.6;
+            font-style: italic;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 
@@ -413,12 +481,104 @@
             `,
             'SKILLS': `
                 <div class="content-section">
-                    <h3>Core Competencies</h3>
-                    <ul>
-                        <li><strong>AI & Machine Learning:</strong> Large Language Models (LLMs), Natural Language Processing (NLP), Multimodal AI.</li>
-                        <li><strong>Research:</strong> Computational Social Science, Low-Resource NLP.</li>
-                        <li><strong>Programming:</strong> Python, PyTorch, JavaScript, React.</li>
-                    </ul>
+                    <h3>Technical Arsenal</h3>
+                    <div class="skills-grid">
+                        <!-- Languages -->
+                        <div class="skill-category">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l10 5-10 5-10-5 10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                                Programming Languages
+                            </h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag proficient">Python</span>
+                                <span class="skill-tag proficient">Java</span>
+                                <span class="skill-tag beginner">C++</span>
+                                <span class="skill-tag beginner">Scala</span>
+                                <span class="skill-tag beginner">Julia</span>
+                                <span class="skill-tag beginner">R</span>
+                            </div>
+                        </div>
+
+                        <!-- Gen AI -->
+                        <div class="skill-category">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline><polyline points="7.5 19.79 7.5 14.63 3 12"></polyline><polyline points="21 12 16.5 14.63 16.5 19.79"></polyline><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                Generative AI & Agents
+                            </h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Gemma</span>
+                                <span class="skill-tag">Llama Family</span>
+                                <span class="skill-tag">OpenAI</span>
+                                <span class="skill-tag">Stable Diffusion (SDXL/3.5)</span>
+                                <span class="skill-tag">Flux</span>
+                                <span class="skill-tag">AutoGen</span>
+                                <span class="skill-tag">PydanticAI</span>
+                                <span class="skill-tag">CrewAI</span>
+                            </div>
+                        </div>
+
+                        <!-- Frameworks -->
+                        <div class="skill-category">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                                ML Frameworks
+                            </h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Scikit-learn</span>
+                                <span class="skill-tag">TensorFlow</span>
+                                <span class="skill-tag">Keras</span>
+                                <span class="skill-tag">LangChain</span>
+                                <span class="skill-tag">LlamaIndex</span>
+                                <span class="skill-tag">PyCaret</span>
+                                <span class="skill-tag">IceVision</span>
+                                <span class="skill-tag">OpenCV</span>
+                            </div>
+                        </div>
+
+                        <!-- Visualization -->
+                        <div class="skill-category">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                                Data Visualization
+                            </h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Tableau</span>
+                                <span class="skill-tag">Power BI</span>
+                                <span class="skill-tag">Seaborn</span>
+                                <span class="skill-tag">Matplotlib</span>
+                                <span class="skill-tag">Plotly</span>
+                                <span class="skill-tag">Graphviz</span>
+                            </div>
+                        </div>
+
+                        <!-- Serving -->
+                        <div class="skill-category">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                                Scaling & Serving
+                            </h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">FastAPI</span>
+                                <span class="skill-tag">Flask</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Kubernetes</span>
+                            </div>
+                        </div>
+
+                        <!-- Cloud -->
+                        <div class="skill-category">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19a5.5 5.5 0 0 0 2.5-10.5 8.5 8.5 0 1 0-15 1.5 6.5 6.5 0 0 0 1.5 12.5h11z"></path></svg>
+                                Cloud & Infrastructure
+                            </h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Azure</span>
+                                <span class="skill-tag">AWS SageMaker</span>
+                                <span class="skill-tag">Terraform</span>
+                                <span class="skill-tag beginner">Google AutoML</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `,
             'AI': `
