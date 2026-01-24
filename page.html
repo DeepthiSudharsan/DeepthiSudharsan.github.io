@@ -468,20 +468,68 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 15, 17, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+            background: linear-gradient(rgba(10, 10, 12, 0.75), rgba(10, 10, 12, 0.85)), url('assets/backgrounds/bg-dark.png');
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(12px);
+            z-index: 2000;
             display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 40px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .folder-overlay.active {
             display: flex;
         }
+
+        /* Beautified Volunteer Card Styles */
+        .vol-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .vol-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .vol-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .vol-org {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .vol-date {
+            color: #888;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
 
         .overlay-close {
             position: absolute;
@@ -1202,16 +1250,42 @@
             const body = document.getElementById('overlayBody');
 
             const database = {
-                'Volunteering': 'Passionate about leveraging technology for social good. I have led multiple community initiatives focused on digital literacy and rural empowerment.',
-                'Mentoring': 'Dedicated to helping the next generation of AI researchers. I regularly mentor students on projects related to NLP and Agentic systems.',
+                'Volunteering': `
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; width: 100%;">
+                        <div class="vol-card">
+                            <div class="vol-org">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                AnitaB.org India
+                            </div>
+                            <div class="vol-role">Mentor - Cohort 1 of Mentorship Program 2025</div>
+                            <div class="vol-date">May 2025 – Present</div>
+                        </div>
+                        <div class="vol-card">
+                            <div class="vol-org">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                Microsoft Learn Student Ambassadors
+                            </div>
+                            <div class="vol-role">Beta Student Ambassador</div>
+                            <div class="vol-date">Jul 2022 – Jul 2023</div>
+                        </div>
+                    </div>
+                `,
+                'Mentoring': `
+                    <div class="vol-card" style="border-left-color: #00d2ff;">
+                        <div class="vol-org" style="color: #00d2ff;">Academic Mentoring</div>
+                        <div class="vol-role">Research & Tech Mentor</div>
+                        <div class="vol-body" style="color: #ccc; font-size: 0.95rem; margin-top: 0.5rem;">Dedicated to helping the next generation of AI researchers navigate the complex landscape of NLP and Agentic systems.</div>
+                    </div>
+                `,
                 'Hobbies': 'Outside of AI, I find balance through competitive Philately (Philatelic exhibitions), exploring diverse musical genres, and deep-diving into philosophy.',
                 'Medium': 'Sharing my journey and technical deep-dives with a broader audience. I write about LLM complexities, research life, and practical NLP tutorials.',
                 'Talks': 'Engaging with the tech community through technical talks, workshops, and keynote addresses at various institutions and conferences.',
                 'Travel': 'Exploring new cultures and landscapes. Travel provides me with fresh perspectives that often influence my research and problem-solving approach.'
             };
 
-            title.innerText = topic;
-            body.innerText = database[topic] || 'Content coming soon...';
+
+            title.innerHTML = topic;
+            body.innerHTML = database[topic] || 'Content coming soon...';
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent scroll
         };
