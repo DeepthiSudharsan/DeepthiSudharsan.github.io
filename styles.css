@@ -187,7 +187,7 @@ body::before {
     display: flex;
     gap: 20px;
     width: max-content;
-    animation: gallery-scroll 60s linear infinite;
+    animation: gallery-scroll 35s linear infinite;
 }
 
 .gallery-ticker img {
