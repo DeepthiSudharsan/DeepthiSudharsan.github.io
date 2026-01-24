@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Deepthi Sudharsan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/misc-supporting-assets/Deepthi-ID-photo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <!-- Browser Caching Prevention -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        :root {
+            --cv-bg: rgba(255, 255, 255, 0.02);
+            --cv-border: rgba(255, 255, 255, 0.08);
+            --cv-accent: var(--accent-color);
+        }
+
+        /* Enable scrolling for this page */
+        body {
+            overflow-y: auto !important;
+            height: auto !important;
+            color: var(--text-color);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            text-align: left;
+        }
+
+        /* CV Header */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .cv-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .cv-contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 30px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--cv-accent);
+            border-color: var(--cv-accent);
+            transform: translateY(-2px);
+        }
+
+        .cv-summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #bbb;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Section Styling */
+        .cv-section {
+            margin-bottom: 5rem;
+        }
+
+        .cv-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--cv-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cv-section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--cv-border), transparent);
+        }
+
+        /* General Entry Layout */
+        .cv-entry {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 3rem;
+            border-left: 1px solid var(--cv-border);
+        }
+
+        .cv-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.8rem;
+        }
+
+        .cv-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .cv-org {
+            color: var(--cv-accent);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cv-date {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cv-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .cv-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .cv-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cv-accent);
+            opacity: 0.6;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--cv-bg);
+            border: 1px solid var(--cv-border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: border-color 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .skill-category h4 {
+            color: #eee;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid var(--cv-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Publication Specifics */
+        .pub-entry {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--cv-border);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .pub-entry:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(5px);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .pub-tag {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--cv-accent);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .pub-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .pub-tldr {
+            font-size: 0.9rem;
+            color: #bbb;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 2px solid var(--cv-accent);
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--cv-border);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--cv-accent);
+            color: #000;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .cv-name {
+                font-size: 2.5rem;
+            }
+
+            .cv-entry-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .page-container {
+                padding: 80px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-dropdown">
+        <div class="dropdown-btn">Navigate ▾</div>
+        <div class="dropdown-content">
+            <a href="index.html">Portfolio</a>
+            <a href="cv.html" class="active">CV / Resume</a>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">&larr; Back</a>
+
+    <div class="page-container">
+
+        <!-- Header -->
+        <header class="cv-header">
+            <h1 class="cv-name">DEEPTHI SUDHARSAN</h1>
+            <div class="cv-contact-grid">
+                <a href="tel:+918610132046" class="contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                    +91 8610132046
+                </a>
+                <a href="mailto:deepthi.sudharsan@gmail.com" class="contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    deepthi.sudharsan@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/deepthi-sudharsan/" target="_blank" class="contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/DeepthiSudharsan" target="_blank" class="contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58V22">
+                        </path>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+            <p class="cv-summary">
+                Self-motivated technology professional with strong business acumen and a passion for AI/ML. Experienced
+                in leading projects, working as a team, and mentoring peers, I am eager to leverage my entrepreneurial
+                mindset to drive innovative AI/ML products that deliver impactful outcomes.
+            </p>
+        </header>
+
+        <!-- Education -->
+        <section class="cv-section">
+            <h2>Education</h2>
+            <div class="cv-entry">
+                <div class="cv-entry-header">
+                    <span class="cv-title">B.Tech, Artificial Intelligence</span>
+                    <span class="cv-date">2019 — 2023</span>
+                </div>
+                <div class="cv-org">Amrita Vishwa Vidyapeetham, Coimbatore</div>
+                <div style="color: #666; font-size: 0.9rem;">CGPA: <strong>9.13</strong></div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="cv-section">
+            <h2>Experience</h2>
+
+            <div class="cv-entry">
+                <div class="cv-entry-header">
+                    <span class="cv-title">Data Scientist</span>
+                    <span class="cv-date">Dec 2025 — Jan 2025</span>
+                </div>
+                <div class="cv-org">InvestCloud</div>
+                <ul class="cv-list">
+                    <li>Worked as part of the Data, AI, and Analytics team contributing to their Digital Wealth product
+                        by evaluating and building a multi-agent intelligent assistant for wealth management advisors
+                        using <strong>LangGraph</strong> and <strong>GPT-based models</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <div class="cv-entry-header">
+                    <span class="cv-title">Independent Researcher</span>
+                    <span class="cv-date">Jul 2025 — Dec 2025</span>
+                </div>
+                <div class="cv-org">In collaboration with Microsoft Research</div>
+                <ul class="cv-list">
+                    <li>Advanced projects initiated during <strong>MSR fellowship</strong> through to <strong>paper
+                            submission at top-tier conferences and workshops (eg. AACL, AAAI, MMFood, etc.)</strong>
+                    </li>
+                    <li>Conducting continued research on <strong>AI agentic, culturally nuanced story
+                            generation</strong> to support financial knowledge acquisition among rural adults, while
+                        <strong>investigating community-centric evaluation frameworks</strong> for assessing cultural
+                        representation in generative AI systems.
+                    </li>
+                    <li>Collaborating with academic and industry researchers on dataset curation, benchmarking, and
+                        culturally nuanced storytelling methods for <strong>underrepresented contexts in Generative
+                            AI</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <div class="cv-entry-header">
+                    <span class="cv-title">Research Fellow</span>
+                    <span class="cv-date">Jul 2023 — Jul 2025</span>
+                </div>
+                <div class="cv-org">Microsoft Research India</div>
+                <ul class="cv-list">
+                    <li><strong>Kahani</strong> — <strong>Led</strong> project Kahani, focused on building an AI-based
+                        multi-agent system for generating culturally-adaptive visual stories using <strong>GPT-4o and
+                            FLUX.1</strong> and agentic frameworks like <strong>PydanticAI</strong> (Advisors: Dr.
+                        Kalika Bali and Dr. Mohit Jain).</li>
+                    <li><strong>Inclusive Representation in T2I</strong> — Developed innovative evaluation metrics for
+                        long-tail concepts and under-represented communities in models such as <strong>Stable Diffusion
+                            3 and DALL-E3</strong> (Advisor: Dr. Cecily Morrison).</li>
+                    <li><strong>Endangered Tribal Languages Documentation</strong> — Led collection and modeling of PoCs
+                        for various use cases, including fine-tuned RAG systems for traditional recipes in endangered
+                        tribal languages.</li>
+                    <li><strong>Updesh</strong> — Helped build a large-scale synthetic dataset designed to advance
+                        post-training of LLMs for Indic languages using <strong>MediaWiki API, BingSearch API, and
+                            GPT-4o</strong>. (Advisors: Dr. Kalika Bali and Dr. Sunayana Sitaram).</li>
+                    <li><strong>HyWay</strong> — Enhanced hybrid engagement by building privacy-preserving agents for
+                        summarization/recap tasks, deployed at internal events attended by <strong>Satya
+                            Nadella</strong> and <strong>Peter Lee</strong>.</li>
+                    <li><strong>Azure Maps Creator Tool</strong> — Collaborated with Azure Maps team to build an
+                        AI-powered automation pipeline using <strong>GPT-4V</strong> with geospatial data and CAD files.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <div class="cv-entry-header">
+                    <span class="cv-title">Technology Consulting Intern — Emerging Technologies</span>
+                    <span class="cv-date">Jan 2023 — Jul 2023</span>
+                </div>
+                <div class="cv-org">PwC India</div>
+                <ul class="cv-list">
+                    <li>Delivered <strong>Proof-of-Concepts (from model development to model serving)</strong> for top
+                        clients, including automated weld defect detection using Deep Neural Nets and ANPR-based vehicle
+                        monitoring.</li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <div class="cv-entry-header">
+                    <span class="cv-title">Machine Learning Intern</span>
+                    <span class="cv-date">Oct 2021 — Dec 2021</span>
+                </div>
+                <div class="cv-org">The Machine Learning Company</div>
+                <ul class="cv-list">
+                    <li>Built <strong>end-to-end Machine Learning solutions</strong> to analyze Near-Infrared
+                        Spectroscopy measurements for ensuring consistent content uniformity of Active Pharmaceutical
+                        Ingredients using Linear Regression, SVM, Random Forests, and LightGBM.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="cv-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">Python, Java (Proficient); C++, Scala, Julia, R (Beginner)</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Frameworks</h4>
+                    <div class="skill-tags">Scikit-learn, TensorFlow, Keras, cvxpy, PuLP, OpenCV, Pycaret, Icevision,
+                        Langchain, LlamaIndex</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Generative AI</h4>
+                    <div class="skill-tags">Gemma Models, OpenAI, Llama Family, SDXL, SD 3.5, Flux, Autogen, PydanticAI,
+                        CrewAI</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Serving & Cloud</h4>
+                    <div class="skill-tags">Flask, Docker, Kubernetes, FastAPI, Azure, Google AutoML, Terraform, AWS
+                        Sagemaker</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section class="cv-section">
+            <h2>Publications</h2>
+
+            <div class="pub-entry">
+                <span class="pub-tag">AAAI EGSAI 2026</span>
+                <h3 class="pub-title">Agentic Framework for Culturally Grounded Visual Story Generation</h3>
+                <div class="pub-authors">Hamna, Aasim Baig, Aayush Jansari, <strong>Deepthi Sudharsan</strong>, Advait
+                    Bhat, Vivek Seshadri, et al.</div>
+                <div class="pub-tldr">Proposed an agentic, human-in-the-loop framework for generating culturally
+                    grounded visual stories using coordinated LLM agents and text-to-image models.</div>
+            </div>
+
+            <div class="pub-entry">
+                <span class="pub-tag">AACL-IJCNLP 2025</span>
+                <h3 class="pub-title">ELR-1000: A Community-Generated Dataset for Endangered Indic Indigenous Languages
+                </h3>
+                <div class="pub-authors">Neha Joshi, Pamir Gogoi, Aasim Mirza, Aayush Jansari, <strong>Deepthi
+                        Sudharsan</strong>, Vivek Seshadri, et al.</div>
+                <div class="pub-tldr">Proposes a benchmark dataset of 1,060 traditional recipes in 10 endangered
+                    languages collected via a mobile tool for low-digital-literacy contributors.</div>
+            </div>
+
+            <div class="pub-entry">
+                <span class="pub-tag">MMFood 2025</span>
+                <h3 class="pub-title">What’s Not on the Plate? Rethinking Food Computing through Indigenous Indian
+                    Datasets</h3>
+                <div class="pub-authors">Pamir Gogoi, Neha Joshi, Ayushi Pandey, <strong>Deepthi Sudharsan</strong>,
+                    Kalika Bali, Vivek Seshadri, et al.</div>
+                <div class="pub-tldr">A multimodal dataset promoting culturally inclusive, community-authored data for
+                    AI in ethical food computing.</div>
+            </div>
+
+            <div class="pub-entry">
+                <span class="pub-tag">COMPASS 2025</span>
+                <h3 class="pub-title">KAHANI: Culturally-Nuanced Visual Storytelling Pipeline for Non-Western Cultures
+                </h3>
+                <div class="pub-authors">Hamna, <strong>Deepthi Sudharsan</strong>, Agrima Seth, Ritvik Budhiraja,
+                    Kalika Bali, et al.</div>
+                <div class="pub-tldr">Developed Kahani, a pipeline utilizing GPT-4 Turbo and SDXL with CoT prompting to
+                    outperform ChatGPT-4 in cultural relevance.</div>
+            </div>
+
+            <div class="pub-entry">
+                <span class="pub-tag">Preprint</span>
+                <h3 class="pub-title">The Role of Synthetic Data in Multilingual, Multicultural AI Systems: Lessons from
+                    Indic languages</h3>
+                <div class="pub-authors">Pranjal A Chitale, Varun Gumma, Sanchit Ahuja, <strong>Deepthi
+                        Sudharsan</strong>, Sunayana Sitaram, et al.</div>
+                <div class="pub-tldr">Presents Updesh, a synthetic instruction-tuning dataset for Indian languages built
+                    via a culturally grounded, bottom-up approach.</div>
+            </div>
+
+            <div style="text-align: center; color: #555; font-size: 0.8rem; margin-top: 2rem;">+ Additional
+                Peer-Reviewed Research in Object Detection, MRI Analytics & Sentimental Analysis</div>
+        </section>
+
+        <!-- Awards -->
+        <section class="cv-section">
+            <h2>Awards & Honors</h2>
+            <ul class="cv-list">
+                <li>Presented <strong>Kahani</strong> at <strong>BeyondCHI 2025</strong>, <strong>IndiaHCI 2025</strong>
+                    and <strong>Cohere4AI Monthly Gathering</strong>.</li>
+                <li>Selected for <strong>McKinsey Next Generation Women Leaders (APAC 2025)</strong> program among 300
+                    globally.</li>
+                <li><strong>Advancing Inclusion Scholar</strong> at <strong>Grace Hopper Celebrations India</strong>
+                    (2024, 2025).</li>
+                <li><strong>Social Impact Award</strong> — Microsoft Research EMEA Hackathon 2024 for <strong>Kisaan
+                        Rafiki</strong>.</li>
+                <li><strong>Winner</strong> — 2024 GenAI InnovateHer Datathon for empowering visually impaired users.
+                </li>
+                <li><strong>Philately</strong> — Multiple Competitive awards at Regional, National, and International
+                    Levels.</li>
+            </ul>
+        </section>
+
+        <!-- Certifications -->
+        <section class="cv-section">
+            <h2>Certifications & Achievements</h2>
+            <ul class="cv-list">
+                <li><strong>Certified Scrum Product Owner (CSPO)</strong>, Scrum Alliance.</li>
+                <li><strong>Google Developers ML Bootcamp Apprentice</strong> (Cohort-2).</li>
+                <li><strong>Founder & Head</strong> — First AI Club at Amrita Vishwa Vidyapeetham.</li>
+                <li><strong>Amazon ML Challenge 2021</strong> — 111th place out of 3,600+ teams.</li>
+                <li><strong>11th place</strong> — DTU-BITGRIT Viral Tweets Prediction Hackathon.</li>
+        </section>
+
+        <!-- Contact Section (Common Footer) -->
+        <div style="margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #333; text-align: center;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: #fff;">
+                Get In Touch</h2>
+            <p style="color: #888; margin-bottom: 2rem;">Open for collaborations, speaking opportunities, and coffee
+                chats.</p>
+            <a href="mailto:deepthi.sudharsan@gmail.com" style="
+                display: inline-block;
+                padding: 1rem 3rem;
+                border: 1px solid #fff;
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                transition: all 0.3s;" onmouseover="this.style.background='#fff'; this.style.color='#000';"
+                onmouseout="this.style.background='transparent'; this.style.color='#fff';">Say Hello</a>
+        </div>
+        <footer
+            style="margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+            <p style="color: #666; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">
+                Built using Google's AntiGravity
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    style="vertical-align: middle; margin-left: 8px;">
+                    <path d="M12 4L4 20H8L12 11L16 20H20L12 4Z" fill="currentColor" />
+                    <circle cx="12" cy="2" r="2" fill="#ffd700" />
+                </svg>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
