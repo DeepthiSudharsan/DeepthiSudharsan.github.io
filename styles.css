@@ -85,10 +85,43 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.about-section {
-    max-width: 900px;
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    /* Moved from center to top-align */
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1100px;
     margin: 0 auto 4rem auto;
-    text-align: center;
+    padding: 0 2rem;
+}
+
+.profile-photo {
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    border-color: #fff;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-section {
+    flex: 1;
+    text-align: left;
+    /* Changed to left-aligned for side-by-side */
     line-height: 1.6;
     font-size: 1.3rem;
     /* Increased for impact since text is shorter */
@@ -115,6 +148,12 @@ body {
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 600;
+    /* Black outline for each letter */
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 .gallery-ticker-wrap {

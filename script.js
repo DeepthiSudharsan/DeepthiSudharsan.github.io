@@ -161,8 +161,8 @@ function performScrollCalc() {
     // Parallax Effect: Move the "page" up as we scroll
     // 1. Move Hero Section up and out
     if (heroSection) {
-        // Reduced from 1200 to 800 as bio is now more concise
-        const heroMove = -scrollProgress * 800;
+        // Increased for the taller profile container
+        const heroMove = -scrollProgress * 1100;
         heroSection.style.transform = `translateY(${heroMove}px)`;
         // Subtle fade out for the bio content as we transition to cards
         heroSection.style.opacity = 1 - (scrollProgress * 1.5);
