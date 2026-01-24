@@ -136,20 +136,11 @@ function performScrollCalc() {
     // Parallax Effect: Move the "page" up as we scroll
     // 1. Move Hero Section up and out
     if (heroSection) {
-        // Move up significantly to simulate scrolling past it
-        const heroMove = -scrollProgress * 400;
+        // Reduced from 1200 to 800 as bio is now more concise
+        const heroMove = -scrollProgress * 800;
         heroSection.style.transform = `translateY(${heroMove}px)`;
-        // Fade it out slightly as it goes up to be cleaner? User didn't ask for fade, just scroll. 
-        // Keeping opacity 1 as per previous request "remain visible at all times" (from conversation history), 
-        // but moving it up is "scrolling". 
-        // Note: The previous request said "search Main title remains visible at all times". 
-        // If I move it off screen, does that violate it? 
-        // "visible at all times" usually means don't fade it out in place. 
-        // But if we are "scrolling down", things naturally leave the viewport.
-        // I will move it up but maybe cap it so it stays somewhat in the top header area?
-        // "page should also be scrolled down a bit". 
-        // If I move it -400px, it leaves the screen.
-        // Maybe -100px?
+        // Subtle fade out for the bio content as we transition to cards
+        heroSection.style.opacity = 1 - (scrollProgress * 1.5);
     }
 
     // 2. Move the Scene (Cards + Table) up slightly
