@@ -27,16 +27,12 @@ let cachedWrappers = null; // Cache DOM elements
 let ticking = false; // For rAF throttling
 
 const galleryImages = [
-    'users_cm0qvmhig011pvq01m20zjnwn_07JBucbu15Kw6hZ6-1740416326718.jpeg',
-    'users_cm0qvmhig011pvq01m20zjnwn_5fhGTt79UszCghSA-Screenshot%202025-09-14%20at%2010.56.44%E2%80%AFPM.png',
-    'users_cm0qvmhig011pvq01m20zjnwn_9HZqJx10oB8UAoNE-1731002893367.jpeg',
-    'users_cm0qvmhig011pvq01m20zjnwn_DEuewJLpRnVYUykl-IMG_3671.jpg',
-    'users_cm0qvmhig011pvq01m20zjnwn_PS66X8SZgyShEoRK-WhatsApp%20Image%202025-09-14%20at%2023.22.51.jpeg',
-    'users_cm0qvmhig011pvq01m20zjnwn_QkYlt1wutcSIgdd1-WhatsApp%20Image%202025-09-14%20at%2023.20.38.jpeg',
-    'users_cm0qvmhig011pvq01m20zjnwn_RixyJUASQOmlTE71-WhatsApp%20Image%202025-09-14%20at%2023.22.51%20(1).jpeg',
-    'users_cm0qvmhig011pvq01m20zjnwn_Rn1te1j09P4I5nnk-Screenshot%202025-09-14%20at%2010.54.30%E2%80%AFPM.png',
-    'users_cm0qvmhig011pvq01m20zjnwn_RnUtRR8ikMEXpfqd-1689435056059.jpeg',
-    'users_cm0qvmhig011pvq01m20zjnwn_SfNxGg79ER8ebfqL-WhatsApp%20Image%202025-09-14%20at%2023.20.34.jpeg',
+    'gallery_image_0.jpeg', 'gallery_image_1.png', 'gallery_image_2.jpeg', 'gallery_image_3.jpg',
+    'gallery_image_4.jpeg', 'gallery_image_5.jpeg', 'gallery_image_6.jpeg', 'gallery_image_7.png',
+    'gallery_image_8.jpeg', 'gallery_image_9.jpeg', 'gallery_image_10.jpeg', 'gallery_image_11.jpeg',
+    'gallery_image_12.jpeg', 'gallery_image_13.jpeg', 'gallery_image_14.png', 'gallery_image_15.png',
+    'gallery_image_16.jpeg', 'gallery_image_17.jpeg', 'gallery_image_18.jpeg', 'gallery_image_19.jpeg',
+    'gallery_image_20.png', 'gallery_image_21.jpeg'
 ];
 
 function init() {
