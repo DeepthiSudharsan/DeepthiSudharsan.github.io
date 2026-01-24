@@ -117,6 +117,46 @@ body {
     font-weight: 600;
 }
 
+.gallery-ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.gallery-ticker {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: gallery-scroll 60s linear infinite;
+}
+
+.gallery-ticker img {
+    height: 180px;
+    /* Uniform height */
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-ticker img:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+}
+
+@keyframes gallery-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 .scene {
     position: relative;
     width: 100%;

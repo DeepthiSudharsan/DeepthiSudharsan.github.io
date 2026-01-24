@@ -26,8 +26,22 @@ let scrollProgress = 0; // 0 to 1 based on sticky track progress
 let cachedWrappers = null; // Cache DOM elements
 let ticking = false; // For rAF throttling
 
+const galleryImages = [
+    'users_cm0qvmhig011pvq01m20zjnwn_07JBucbu15Kw6hZ6-1740416326718.jpeg',
+    'users_cm0qvmhig011pvq01m20zjnwn_5fhGTt79UszCghSA-Screenshot%202025-09-14%20at%2010.56.44%E2%80%AFPM.png',
+    'users_cm0qvmhig011pvq01m20zjnwn_9HZqJx10oB8UAoNE-1731002893367.jpeg',
+    'users_cm0qvmhig011pvq01m20zjnwn_DEuewJLpRnVYUykl-IMG_3671.jpg',
+    'users_cm0qvmhig011pvq01m20zjnwn_PS66X8SZgyShEoRK-WhatsApp%20Image%202025-09-14%20at%2023.22.51.jpeg',
+    'users_cm0qvmhig011pvq01m20zjnwn_QkYlt1wutcSIgdd1-WhatsApp%20Image%202025-09-14%20at%2023.20.38.jpeg',
+    'users_cm0qvmhig011pvq01m20zjnwn_RixyJUASQOmlTE71-WhatsApp%20Image%202025-09-14%20at%2023.22.51%20(1).jpeg',
+    'users_cm0qvmhig011pvq01m20zjnwn_Rn1te1j09P4I5nnk-Screenshot%202025-09-14%20at%2010.54.30%E2%80%AFPM.png',
+    'users_cm0qvmhig011pvq01m20zjnwn_RnUtRR8ikMEXpfqd-1689435056059.jpeg',
+    'users_cm0qvmhig011pvq01m20zjnwn_SfNxGg79ER8ebfqL-WhatsApp%20Image%202025-09-14%20at%2023.20.34.jpeg',
+];
+
 function init() {
     createCards();
+    createGallery();
     // Cache them once created
     cachedWrappers = document.querySelectorAll('.card-wrapper');
 
@@ -36,6 +50,21 @@ function init() {
 
     // Initial trigger
     onScroll();
+}
+
+function createGallery() {
+    const ticker = document.getElementById('galleryTicker');
+    if (!ticker) return;
+
+    // Create the images twice for a seamless loop
+    const allImages = [...galleryImages, ...galleryImages];
+
+    allImages.forEach(imgName => {
+        const img = document.createElement('img');
+        img.src = `assets/gallery/${imgName}`;
+        img.alt = "Research Gallery";
+        ticker.appendChild(img);
+    });
 }
 
 function createCards() {
