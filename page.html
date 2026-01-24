@@ -369,6 +369,151 @@
             left: 0;
             color: var(--accent-color);
         }
+
+        /* MISC Ticker Styles */
+        .misc-ticker-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .ticker-row {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            gap: 40px;
+        }
+
+        .ticker-track.forward {
+            animation: ticker-slide-forward 40s linear infinite;
+        }
+
+        .ticker-track.reverse {
+            animation: ticker-slide-reverse 40s linear infinite;
+        }
+
+        .ticker-row:hover .ticker-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes ticker-slide-forward {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes ticker-slide-reverse {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .folder-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 20px;
+            width: 200px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .folder-card:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--accent-color);
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .folder-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+        }
+
+        .folder-card span {
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* Folder Overlay Styles */
+        .folder-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 17, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .folder-overlay.active {
+            display: flex;
+        }
+
+        .overlay-close {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .overlay-close:hover {
+            color: var(--accent-color);
+        }
+
+        .overlay-content {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .overlay-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .overlay-body {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
     </style>
 </head>
 
@@ -378,6 +523,15 @@
         <h1 id="pageTitle">Loading...</h1>
         <div id="content">
             <!-- Dynamic Content will be injected here -->
+        </div>
+
+        <!-- Folder Overlay -->
+        <div id="folderOverlay" class="folder-overlay">
+            <span class="overlay-close" onclick="closeFolder()">&times;</span>
+            <div class="overlay-content">
+                <h2 id="overlayTitle" class="overlay-title"></h2>
+                <p id="overlayBody" class="overlay-body"></p>
+            </div>
         </div>
 
         <!-- Contact Section (Common Footer) -->
@@ -956,14 +1110,70 @@
             `,
             'MISC': `
                 <div class="content-section">
-                    <h3>Writes & Thoughts</h3>
-                    <p>I actively write on <a href="https://medium.com/@deepthisudharsan" target="_blank">Medium</a> about:</p>
-                    <ul>
-                        <li>Unpacking the complexities of LLMs.</li>
-                        <li>Experiences as a researcher in the fast-paced AI world.</li>
-                        <li>Tutorials and insights on NLP techniques.</li>
-                        <li>Latest updates from MSR and personal projects.</li>
-                    </ul>
+                    <h3>Explore & Connect</h3>
+                    <p>Diving into diverse interests and community initiatives. Click a folder to explore more.</p>
+                    
+                    <div class="misc-ticker-container">
+                        <!-- Row 1: Forward Motion -->
+                        <div class="ticker-row">
+                            <div class="ticker-track forward">
+                                <div class="folder-card" onclick="openFolder('Volunteering')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Volunteering</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Mentoring')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Mentoring</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Hobbies')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Hobbies</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Volunteering')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Volunteering</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Mentoring')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Mentoring</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Hobbies')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Hobbies</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Reverse Motion -->
+                        <div class="ticker-row">
+                            <div class="ticker-track reverse">
+                                <div class="folder-card" onclick="openFolder('Medium')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Medium</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Talks')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Talks</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Travel')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Travel</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Medium')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Medium</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Talks')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Talks</span>
+                                </div>
+                                <div class="folder-card" onclick="openFolder('Travel')">
+                                    <img src="assets/misc-supporting-assets/folder.png" alt="Folder">
+                                    <span>Travel</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `
         };
@@ -984,6 +1194,33 @@
                 <p><em>(Detailed content for this section is currently being updated.)</em></p>
             `;
         }
+
+        /* Folder Opening Logic */
+        window.openFolder = function (topic) {
+            const overlay = document.getElementById('folderOverlay');
+            const title = document.getElementById('overlayTitle');
+            const body = document.getElementById('overlayBody');
+
+            const database = {
+                'Volunteering': 'Passionate about leveraging technology for social good. I have led multiple community initiatives focused on digital literacy and rural empowerment.',
+                'Mentoring': 'Dedicated to helping the next generation of AI researchers. I regularly mentor students on projects related to NLP and Agentic systems.',
+                'Hobbies': 'Outside of AI, I find balance through competitive Philately (Philatelic exhibitions), exploring diverse musical genres, and deep-diving into philosophy.',
+                'Medium': 'Sharing my journey and technical deep-dives with a broader audience. I write about LLM complexities, research life, and practical NLP tutorials.',
+                'Talks': 'Engaging with the tech community through technical talks, workshops, and keynote addresses at various institutions and conferences.',
+                'Travel': 'Exploring new cultures and landscapes. Travel provides me with fresh perspectives that often influence my research and problem-solving approach.'
+            };
+
+            title.innerText = topic;
+            body.innerText = database[topic] || 'Content coming soon...';
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        };
+
+        window.closeFolder = function () {
+            const overlay = document.getElementById('folderOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scroll
+        };
     </script>
 </body>
 
