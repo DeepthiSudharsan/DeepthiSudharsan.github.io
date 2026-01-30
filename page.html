@@ -819,6 +819,82 @@
             font-size: 1.1rem;
             line-height: 1.8;
         }
+
+        /* Talks Section Styles */
+        .talks-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .talk-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .talk-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            opacity: 0.5;
+        }
+
+        .talk-card:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-color);
+        }
+
+        .talk-date {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 80px;
+        }
+
+        .talk-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            color: #fff;
+        }
+
+        .talk-info p {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .talk-info strong {
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .talk-card {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .talk-card:hover {
+                transform: translateY(-5px);
+            }
+        }
     </style>
 </head>
 
@@ -1784,7 +1860,45 @@
                     </div>
                 `,
                 'Medium': 'Sharing my journey and technical deep-dives with a broader audience. I write about LLM complexities, research life, and practical NLP tutorials.',
-                'Talks': 'Engaging with the tech community through technical talks, workshops, and keynote addresses at various institutions and conferences.',
+                'Talks': `
+                    <div class="talks-grid">
+                        <div class="talk-card">
+                            <div class="talk-date">Nov 2025</div>
+                            <div class="talk-info">
+                                <h3>ACM COMPASS 2025</h3>
+                                <p>Presented <strong>Kahani</strong> at the prestigious ACM SIGCAS/SIGCHI Conference on Computing and Sustainable Societies.</p>
+                            </div>
+                        </div>
+                        <div class="talk-card">
+                            <div class="talk-date">Aug 2025</div>
+                            <div class="talk-info">
+                                <h3>BeyondCHI 2025</h3>
+                                <p>Showcased research on Human-Computer Interaction and the intersection of AI at the <strong>BeyondCHI</strong> venue.</p>
+                            </div>
+                        </div>
+                        <div class="talk-card">
+                            <div class="talk-date">Aug 2025</div>
+                            <div class="talk-info">
+                                <h3>IndiaHCI 2025</h3>
+                                <p>Invited presentation on advancements in <strong>Indic Language HCI</strong> and multimodal dataset development.</p>
+                            </div>
+                        </div>
+                        <div class="talk-card">
+                            <div class="talk-date">Nov 2024</div>
+                            <div class="talk-info">
+                                <h3>Cohere4AI Monthly Gathering</h3>
+                                <p>Delivered a technical talk on the <strong>Kahani Visual Storytelling</strong> pipeline to a global community of AI researchers.</p>
+                            </div>
+                        </div>
+                        <div class="talk-card">
+                            <div class="talk-date">2023 - 2024</div>
+                            <div class="talk-info">
+                                <h3>Institutional Workshops</h3>
+                                <p>Conducted multiple hands-on workshops on <strong>LLM complexities</strong> and practical <strong>NLP applications</strong> across various engineering colleges.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
                 'Travel': 'Exploring new cultures and landscapes. Travel provides me with fresh perspectives that often influence my research and problem-solving approach.'
             };
 
