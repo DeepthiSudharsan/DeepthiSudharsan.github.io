@@ -237,12 +237,104 @@
             border-radius: 16px;
             margin-bottom: 2rem;
             transition: all 0.3s ease;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            min-height: 140px;
         }
 
         .pub-entry:hover {
             background: rgba(255, 255, 255, 0.04);
             transform: translateX(5px);
             border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .pub-main {
+            flex: 1;
+        }
+
+        .pub-poster-container {
+            flex-shrink: 0;
+            width: 120px;
+            height: 160px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+            /* fix safari overflow */
+            mask-image: radial-gradient(white, black);
+        }
+
+        @media (max-width: 600px) {
+            .pub-entry {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .pub-poster-container {
+                width: 100%;
+                height: 100px;
+            }
+
+            .pub-poster-iframe {
+                transform: scale(0.2) translate(0, -20%);
+                width: 100%;
+            }
+        }
+
+        .pub-poster-container:hover {
+            transform: scale(1.1) rotate(2deg);
+            border-color: var(--cv-accent);
+        }
+
+        /* The PDF Preview "Hack" */
+        .pub-poster-iframe {
+            width: 800px;
+            /* High res internal width */
+            height: 1130px;
+            /* A4 aspect ratio */
+            border: none;
+            transform: scale(0.15);
+            /* Scale down to fit 120x160ish */
+            transform-origin: 0 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .pub-poster-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 40%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 12px;
+            z-index: 2;
+        }
+
+        .pub-poster-overlay span {
+            font-size: 0.6rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .pub-poster-overlay svg {
+            width: 18px;
+            height: 18px;
+            margin-bottom: 4px;
+            color: var(--cv-accent);
         }
 
         .pub-tag {
@@ -459,7 +551,8 @@
                                 <strong>GPT-4o and
                                     FLUX.1</strong> and agentic frameworks like <strong>PydanticAI</strong> (Advisors:
                                 Dr.
-                                Kalika Bali and Dr. Mohit Jain).</li>
+                                Kalika Bali and Dr. Mohit Jain).
+                            </li>
                             <li><strong>Inclusive Representation in T2I</strong> — Developed innovative evaluation
                                 metrics for
                                 long-tail concepts and under-represented communities in models such as <strong>Stable
@@ -559,52 +652,100 @@
             <h2>Publications</h2>
 
             <div class="pub-entry">
-                <span class="pub-tag">AAAI EGSAI 2026</span>
-                <h3 class="pub-title">Agentic Framework for Culturally Grounded Visual Story Generation</h3>
-                <div class="pub-authors">Hamna, Aasim Baig, Aayush Jansari, <strong>Deepthi Sudharsan</strong>, Advait
-                    Bhat, Vivek Seshadri, et al.</div>
-                <div class="pub-tldr">Proposed an agentic, human-in-the-loop framework for generating culturally
-                    grounded visual stories using coordinated LLM agents and text-to-image models.</div>
+                <div class="pub-main">
+                    <span class="pub-tag">AAAI EGSAI 2026</span>
+                    <h3 class="pub-title">Agentic Framework for Culturally Grounded Visual Story Generation</h3>
+                    <div class="pub-authors">Hamna, Aasim Baig, Aayush Jansari, <strong>Deepthi Sudharsan</strong>,
+                        Advait
+                        Bhat, Vivek Seshadri, et al.</div>
+                    <div class="pub-tldr">Proposed an agentic, human-in-the-loop framework for generating culturally
+                        grounded visual stories using coordinated LLM agents and text-to-image models.</div>
+                </div>
+                <div class="pub-poster-container" onclick="window.open('assets/publications/AAAI26.pdf', '_blank')">
+                    <iframe class="pub-poster-iframe"
+                        src="assets/publications/AAAI26.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Poster</span>
+                    </div>
+                </div>
             </div>
 
             <div class="pub-entry">
-                <span class="pub-tag">AACL-IJCNLP 2025</span>
-                <h3 class="pub-title">ELR-1000: A Community-Generated Dataset for Endangered Indic Indigenous Languages
-                </h3>
-                <div class="pub-authors">Neha Joshi, Pamir Gogoi, Aasim Mirza, Aayush Jansari, <strong>Deepthi
-                        Sudharsan</strong>, Vivek Seshadri, et al.</div>
-                <div class="pub-tldr">Proposes a benchmark dataset of 1,060 traditional recipes in 10 endangered
-                    languages collected via a mobile tool for low-digital-literacy contributors.</div>
+                <div class="pub-main">
+                    <span class="pub-tag">AACL-IJCNLP 2025</span>
+                    <h3 class="pub-title">ELR-1000: A Community-Generated Dataset for Endangered Indic Indigenous
+                        Languages
+                    </h3>
+                    <div class="pub-authors">Neha Joshi, Pamir Gogoi, Aasim Mirza, Aayush Jansari, <strong>Deepthi
+                            Sudharsan</strong>, Vivek Seshadri, et al.</div>
+                    <div class="pub-tldr">Proposes a benchmark dataset of 1,060 traditional recipes in 10 endangered
+                        languages collected via a mobile tool for low-digital-literacy contributors.</div>
+                </div>
+                <div class="pub-poster-container" onclick="window.open('assets/publications/ELR-1000.pdf', '_blank')">
+                    <iframe class="pub-poster-iframe"
+                        src="assets/publications/ELR-1000.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Poster</span>
+                    </div>
+                </div>
             </div>
 
             <div class="pub-entry">
-                <span class="pub-tag">MMFood 2025</span>
-                <h3 class="pub-title">What’s Not on the Plate? Rethinking Food Computing through Indigenous Indian
-                    Datasets</h3>
-                <div class="pub-authors">Pamir Gogoi, Neha Joshi, Ayushi Pandey, <strong>Deepthi Sudharsan</strong>,
-                    Kalika Bali, Vivek Seshadri, et al.</div>
-                <div class="pub-tldr">A multimodal dataset promoting culturally inclusive, community-authored data for
-                    AI in ethical food computing.</div>
+                <div class="pub-main">
+                    <span class="pub-tag">MMFood 2025</span>
+                    <h3 class="pub-title">What’s Not on the Plate? Rethinking Food Computing through Indigenous Indian
+                        Datasets</h3>
+                    <div class="pub-authors">Pamir Gogoi, Neha Joshi, Ayushi Pandey, <strong>Deepthi Sudharsan</strong>,
+                        Kalika Bali, Vivek Seshadri, et al.</div>
+                    <div class="pub-tldr">A multimodal dataset promoting culturally inclusive, community-authored data
+                        for
+                        AI in ethical food computing.</div>
+                </div>
+                <div class="pub-poster-container"
+                    onclick="window.open('assets/publications/What\'s Not on the Plate Rethinking Food Computing through Indigenous Indian Datasets (6).pdf', '_blank')">
+                    <iframe class="pub-poster-iframe"
+                        src="assets/publications/What's Not on the Plate Rethinking Food Computing through Indigenous Indian Datasets (6).pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Poster</span>
+                    </div>
+                </div>
             </div>
 
             <div class="pub-entry">
-                <span class="pub-tag">COMPASS 2025</span>
-                <h3 class="pub-title">KAHANI: Culturally-Nuanced Visual Storytelling Pipeline for Non-Western Cultures
-                </h3>
-                <div class="pub-authors">Hamna, <strong>Deepthi Sudharsan</strong>, Agrima Seth, Ritvik Budhiraja,
-                    Kalika Bali, et al.</div>
-                <div class="pub-tldr">Developed Kahani, a pipeline utilizing GPT-4 Turbo and SDXL with CoT prompting to
-                    outperform ChatGPT-4 in cultural relevance.</div>
+                <div class="pub-main">
+                    <span class="pub-tag">COMPASS 2025</span>
+                    <h3 class="pub-title">KAHANI: Culturally-Nuanced Visual Storytelling Pipeline for Non-Western
+                        Cultures
+                    </h3>
+                    <div class="pub-authors">Hamna, <strong>Deepthi Sudharsan</strong>, Agrima Seth, Ritvik Budhiraja,
+                        Kalika Bali, et al.</div>
+                    <div class="pub-tldr">Developed Kahani, a pipeline utilizing GPT-4 Turbo and SDXL with CoT prompting
+                        to
+                        outperform ChatGPT-4 in cultural relevance.</div>
+                </div>
             </div>
 
             <div class="pub-entry">
-                <span class="pub-tag">Preprint</span>
-                <h3 class="pub-title">The Role of Synthetic Data in Multilingual, Multicultural AI Systems: Lessons from
-                    Indic languages</h3>
-                <div class="pub-authors">Pranjal A Chitale, Varun Gumma, Sanchit Ahuja, <strong>Deepthi
-                        Sudharsan</strong>, Sunayana Sitaram, et al.</div>
-                <div class="pub-tldr">Presents Updesh, a synthetic instruction-tuning dataset for Indian languages built
-                    via a culturally grounded, bottom-up approach.</div>
+                <div class="pub-main">
+                    <span class="pub-tag">Preprint</span>
+                    <h3 class="pub-title">The Role of Synthetic Data in Multilingual, Multicultural AI Systems: Lessons
+                        from
+                        Indic languages</h3>
+                    <div class="pub-authors">Pranjal A Chitale, Varun Gumma, Sanchit Ahuja, <strong>Deepthi
+                            Sudharsan</strong>, Sunayana Sitaram, et al.</div>
+                    <div class="pub-tldr">Presents Updesh, a synthetic instruction-tuning dataset for Indian languages
+                        built
+                        via a culturally grounded, bottom-up approach.</div>
+                </div>
             </div>
 
             <div style="text-align: center; color: #555; font-size: 0.8rem; margin-top: 2rem;">+ Additional
