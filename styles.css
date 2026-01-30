@@ -146,7 +146,7 @@ body::before {
    Once we hit the bottom of this track, the sticky element unpins (moves up).
 */
 .content-track {
-    height: 600vh;
+    height: 300vh;
     position: relative;
     background: transparent;
     /* allow lower layers if any */

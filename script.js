@@ -168,14 +168,14 @@ function performScrollCalc() {
     const scene = document.querySelector('.scene');
     const heroTitle = document.querySelector('.main-title'); // Re-selecting to be safe
 
-    const trackHeight = window.innerHeight * 6.0;
+    const trackHeight = window.innerHeight * 3.0;
     const activeDistance = trackHeight - window.innerHeight;
 
     // We want animation to finish relatively quickly so there's "empty space" after
     const rawProgress = scrollTop / activeDistance;
 
-    // Multiplier 2.5 means animation completes in 1/2.5 = 40% of the scroll distance
-    scrollProgress = Math.min(Math.max(rawProgress * 2.5, 0), 1);
+    // Multiplier 1.6 means animation completes in 1/1.6 = 62.5% of the scroll distance
+    scrollProgress = Math.min(Math.max(rawProgress * 1.6, 0), 1);
 
     // Hero fade out - removed per request, but we now scroll it UP
     if (heroTitle) heroTitle.style.opacity = 1;
