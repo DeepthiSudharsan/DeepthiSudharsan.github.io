@@ -615,36 +615,69 @@ body::before {
     color: #fff;
 }
 
-/* --- Contact Section --- */
-.contact-section {
-    background-color: transparent;
+/* --- Connect Section --- */
+.connect-section {
+    padding: 6rem 2rem;
     text-align: center;
-    padding: 6rem 1rem;
+    background: transparent;
 }
 
-.contact-section h2 {
+.connect-section h2 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.contact-section p {
-    color: #888;
     margin-bottom: 3rem;
+    color: var(--text-color);
 }
 
-.contact-btn {
-    display: inline-block;
-    padding: 1rem 3rem;
-    border: 1px solid #fff;
+.connect-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.connect-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: all 0.3s;
+    font-size: 0.85rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
 }
 
-.contact-btn:hover {
+.connect-btn:hover {
     background: #fff;
     color: #000;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #fff;
+}
+
+.connect-btn svg,
+.connect-btn img {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .connect-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .connect-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
 }
