@@ -36,16 +36,38 @@ const galleryImages = [
 ];
 
 function init() {
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     createCards();
     createGallery();
     // Cache them once created
     cachedWrappers = document.querySelectorAll('.card-wrapper');
+
+    // Restore scroll position
+    const savedScroll = sessionStorage.getItem('homepage_scroll_pos');
+    if (savedScroll && scrollContainer) {
+        requestAnimationFrame(() => {
+            scrollContainer.scrollTop = parseFloat(savedScroll);
+            performScrollCalc();
+            // Clear it after restoration so a fresh visit starts at top
+            sessionStorage.removeItem('homepage_scroll_pos');
+        });
+    }
 
     updateCardPositions();
     scrollContainer.addEventListener('scroll', onScroll);
 
     // Initial trigger
     onScroll();
+
+    // Save scroll position whenever leaving the page
+    window.addEventListener('pagehide', () => {
+        if (scrollContainer) {
+            sessionStorage.setItem('homepage_scroll_pos', scrollContainer.scrollTop);
+        }
+    });
 }
 
 function createGallery() {
