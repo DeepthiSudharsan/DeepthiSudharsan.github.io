@@ -121,6 +121,27 @@
             border-left: 1px solid var(--cv-border);
         }
 
+        .cv-entry-flex {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .cv-entry-main {
+            flex: 1;
+        }
+
+        .cv-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 4px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .cv-entry-header {
             display: flex;
             justify-content: space-between;
@@ -352,12 +373,17 @@
         <section class="cv-section">
             <h2>Education</h2>
             <div class="cv-entry">
-                <div class="cv-entry-header">
-                    <span class="cv-title">B.Tech, Artificial Intelligence</span>
-                    <span class="cv-date">2019 — 2023</span>
+                <div class="cv-entry-flex">
+                    <img src="assets/education/amrita.png" alt="Amrita Logo" class="cv-logo">
+                    <div class="cv-entry-main">
+                        <div class="cv-entry-header">
+                            <span class="cv-title">B.Tech, Artificial Intelligence</span>
+                            <span class="cv-date">2019 — 2023</span>
+                        </div>
+                        <div class="cv-org">Amrita Vishwa Vidyapeetham, Coimbatore</div>
+                        <div style="color: #666; font-size: 0.9rem;">CGPA: <strong>9.13</strong></div>
+                    </div>
                 </div>
-                <div class="cv-org">Amrita Vishwa Vidyapeetham, Coimbatore</div>
-                <div style="color: #666; font-size: 0.9rem;">CGPA: <strong>9.13</strong></div>
             </div>
         </section>
 
@@ -366,92 +392,139 @@
             <h2>Experience</h2>
 
             <div class="cv-entry">
-                <div class="cv-entry-header">
-                    <span class="cv-title">Data Scientist</span>
-                    <span class="cv-date">Dec 2025 — Jan 2025</span>
+                <div class="cv-entry-flex">
+                    <img src="assets/companies/investcloud.jpeg" alt="InvestCloud Logo" class="cv-logo">
+                    <div class="cv-entry-main">
+                        <div class="cv-entry-header">
+                            <span class="cv-title">Data Scientist</span>
+                            <span class="cv-date">Dec 2025 — Jan 2025</span>
+                        </div>
+                        <div class="cv-org">InvestCloud</div>
+                        <ul class="cv-list">
+                            <li>Worked as part of the Data, AI, and Analytics team contributing to their Digital Wealth
+                                product
+                                by evaluating and building a multi-agent intelligent assistant for wealth management
+                                advisors
+                                using <strong>LangGraph</strong> and <strong>GPT-based models</strong>.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="cv-org">InvestCloud</div>
-                <ul class="cv-list">
-                    <li>Worked as part of the Data, AI, and Analytics team contributing to their Digital Wealth product
-                        by evaluating and building a multi-agent intelligent assistant for wealth management advisors
-                        using <strong>LangGraph</strong> and <strong>GPT-based models</strong>.</li>
-                </ul>
             </div>
 
             <div class="cv-entry">
-                <div class="cv-entry-header">
-                    <span class="cv-title">Independent Researcher</span>
-                    <span class="cv-date">Jul 2025 — Dec 2025</span>
+                <div class="cv-entry-flex">
+                    <img src="assets/companies/microsoft.png" alt="Microsoft Logo" class="cv-logo">
+                    <div class="cv-entry-main">
+                        <div class="cv-entry-header">
+                            <span class="cv-title">Independent Researcher</span>
+                            <span class="cv-date">Jul 2025 — Dec 2025</span>
+                        </div>
+                        <div class="cv-org">In collaboration with Microsoft Research</div>
+                        <ul class="cv-list">
+                            <li>Advanced projects initiated during <strong>MSR fellowship</strong> through to
+                                <strong>paper
+                                    submission at top-tier conferences and workshops (eg. AACL, AAAI, MMFood,
+                                    etc.)</strong>
+                            </li>
+                            <li>Conducting continued research on <strong>AI agentic, culturally nuanced story
+                                    generation</strong> to support financial knowledge acquisition among rural adults,
+                                while
+                                <strong>investigating community-centric evaluation frameworks</strong> for assessing
+                                cultural
+                                representation in generative AI systems.
+                            </li>
+                            <li>Collaborating with academic and industry researchers on dataset curation, benchmarking,
+                                and
+                                culturally nuanced storytelling methods for <strong>underrepresented contexts in
+                                    Generative
+                                    AI</strong>.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="cv-org">In collaboration with Microsoft Research</div>
-                <ul class="cv-list">
-                    <li>Advanced projects initiated during <strong>MSR fellowship</strong> through to <strong>paper
-                            submission at top-tier conferences and workshops (eg. AACL, AAAI, MMFood, etc.)</strong>
-                    </li>
-                    <li>Conducting continued research on <strong>AI agentic, culturally nuanced story
-                            generation</strong> to support financial knowledge acquisition among rural adults, while
-                        <strong>investigating community-centric evaluation frameworks</strong> for assessing cultural
-                        representation in generative AI systems.
-                    </li>
-                    <li>Collaborating with academic and industry researchers on dataset curation, benchmarking, and
-                        culturally nuanced storytelling methods for <strong>underrepresented contexts in Generative
-                            AI</strong>.</li>
-                </ul>
             </div>
 
             <div class="cv-entry">
-                <div class="cv-entry-header">
-                    <span class="cv-title">Research Fellow</span>
-                    <span class="cv-date">Jul 2023 — Jul 2025</span>
+                <div class="cv-entry-flex">
+                    <img src="assets/companies/microsoft.png" alt="Microsoft Logo" class="cv-logo">
+                    <div class="cv-entry-main">
+                        <div class="cv-entry-header">
+                            <span class="cv-title">Research Fellow</span>
+                            <span class="cv-date">Jul 2023 — Jul 2025</span>
+                        </div>
+                        <div class="cv-org">Microsoft Research India</div>
+                        <ul class="cv-list">
+                            <li><strong>Kahani</strong> — <strong>Led</strong> project Kahani, focused on building an
+                                AI-based
+                                multi-agent system for generating culturally-adaptive visual stories using
+                                <strong>GPT-4o and
+                                    FLUX.1</strong> and agentic frameworks like <strong>PydanticAI</strong> (Advisors:
+                                Dr.
+                                Kalika Bali and Dr. Mohit Jain).</li>
+                            <li><strong>Inclusive Representation in T2I</strong> — Developed innovative evaluation
+                                metrics for
+                                long-tail concepts and under-represented communities in models such as <strong>Stable
+                                    Diffusion
+                                    3 and DALL-E3</strong> (Advisor: Dr. Cecily Morrison).</li>
+                            <li><strong>Endangered Tribal Languages Documentation</strong> — Led collection and modeling
+                                of PoCs
+                                for various use cases, including fine-tuned RAG systems for traditional recipes in
+                                endangered
+                                tribal languages.</li>
+                            <li><strong>Updesh</strong> — Helped build a large-scale synthetic dataset designed to
+                                advance
+                                post-training of LLMs for Indic languages using <strong>MediaWiki API, BingSearch API,
+                                    and
+                                    GPT-4o</strong>. (Advisors: Dr. Kalika Bali and Dr. Sunayana Sitaram).</li>
+                            <li><strong>HyWay</strong> — Enhanced hybrid engagement by building privacy-preserving
+                                agents for
+                                summarization/recap tasks, deployed at internal events attended by <strong>Satya
+                                    Nadella</strong> and <strong>Peter Lee</strong>.</li>
+                            <li><strong>Azure Maps Creator Tool</strong> — Collaborated with Azure Maps team to build an
+                                AI-powered automation pipeline using <strong>GPT-4V</strong> with geospatial data and
+                                CAD files.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="cv-org">Microsoft Research India</div>
-                <ul class="cv-list">
-                    <li><strong>Kahani</strong> — <strong>Led</strong> project Kahani, focused on building an AI-based
-                        multi-agent system for generating culturally-adaptive visual stories using <strong>GPT-4o and
-                            FLUX.1</strong> and agentic frameworks like <strong>PydanticAI</strong> (Advisors: Dr.
-                        Kalika Bali and Dr. Mohit Jain).</li>
-                    <li><strong>Inclusive Representation in T2I</strong> — Developed innovative evaluation metrics for
-                        long-tail concepts and under-represented communities in models such as <strong>Stable Diffusion
-                            3 and DALL-E3</strong> (Advisor: Dr. Cecily Morrison).</li>
-                    <li><strong>Endangered Tribal Languages Documentation</strong> — Led collection and modeling of PoCs
-                        for various use cases, including fine-tuned RAG systems for traditional recipes in endangered
-                        tribal languages.</li>
-                    <li><strong>Updesh</strong> — Helped build a large-scale synthetic dataset designed to advance
-                        post-training of LLMs for Indic languages using <strong>MediaWiki API, BingSearch API, and
-                            GPT-4o</strong>. (Advisors: Dr. Kalika Bali and Dr. Sunayana Sitaram).</li>
-                    <li><strong>HyWay</strong> — Enhanced hybrid engagement by building privacy-preserving agents for
-                        summarization/recap tasks, deployed at internal events attended by <strong>Satya
-                            Nadella</strong> and <strong>Peter Lee</strong>.</li>
-                    <li><strong>Azure Maps Creator Tool</strong> — Collaborated with Azure Maps team to build an
-                        AI-powered automation pipeline using <strong>GPT-4V</strong> with geospatial data and CAD files.
-                    </li>
-                </ul>
             </div>
 
             <div class="cv-entry">
-                <div class="cv-entry-header">
-                    <span class="cv-title">Technology Consulting Intern — Emerging Technologies</span>
-                    <span class="cv-date">Jan 2023 — Jul 2023</span>
+                <div class="cv-entry-flex">
+                    <img src="assets/companies/pwc.png" alt="PwC Logo" class="cv-logo">
+                    <div class="cv-entry-main">
+                        <div class="cv-entry-header">
+                            <span class="cv-title">Technology Consulting Intern — Emerging Technologies</span>
+                            <span class="cv-date">Jan 2023 — Jul 2023</span>
+                        </div>
+                        <div class="cv-org">PwC India</div>
+                        <ul class="cv-list">
+                            <li>Delivered <strong>Proof-of-Concepts (from model development to model serving)</strong>
+                                for top
+                                clients, including automated weld defect detection using Deep Neural Nets and ANPR-based
+                                vehicle
+                                monitoring.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="cv-org">PwC India</div>
-                <ul class="cv-list">
-                    <li>Delivered <strong>Proof-of-Concepts (from model development to model serving)</strong> for top
-                        clients, including automated weld defect detection using Deep Neural Nets and ANPR-based vehicle
-                        monitoring.</li>
-                </ul>
             </div>
 
             <div class="cv-entry">
-                <div class="cv-entry-header">
-                    <span class="cv-title">Machine Learning Intern</span>
-                    <span class="cv-date">Oct 2021 — Dec 2021</span>
+                <div class="cv-entry-flex">
+                    <img src="assets/companies/tmlc.jpeg" alt="TMLC Logo" class="cv-logo">
+                    <div class="cv-entry-main">
+                        <div class="cv-entry-header">
+                            <span class="cv-title">Machine Learning Intern</span>
+                            <span class="cv-date">Oct 2021 — Dec 2021</span>
+                        </div>
+                        <div class="cv-org">The Machine Learning Company</div>
+                        <ul class="cv-list">
+                            <li>Built <strong>end-to-end Machine Learning solutions</strong> to analyze Near-Infrared
+                                Spectroscopy measurements for ensuring consistent content uniformity of Active
+                                Pharmaceutical
+                                Ingredients using Linear Regression, SVM, Random Forests, and LightGBM.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="cv-org">The Machine Learning Company</div>
-                <ul class="cv-list">
-                    <li>Built <strong>end-to-end Machine Learning solutions</strong> to analyze Near-Infrared
-                        Spectroscopy measurements for ensuring consistent content uniformity of Active Pharmaceutical
-                        Ingredients using Linear Regression, SVM, Random Forests, and LightGBM.</li>
-                </ul>
             </div>
         </section>
 
