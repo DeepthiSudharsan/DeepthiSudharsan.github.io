@@ -268,30 +268,15 @@
             -webkit-mask-image: -webkit-radial-gradient(white, black);
             /* fix safari overflow */
             mask-image: radial-gradient(white, black);
-        }
-
-        @media (max-width: 600px) {
-            .pub-entry {
-                flex-direction: column-reverse;
-                align-items: center;
-                text-align: center;
-                gap: 1.5rem;
-            }
-
-            .pub-poster-container {
-                width: 100%;
-                height: 100px;
-            }
-
-            .pub-poster-iframe {
-                transform: scale(0.2) translate(0, -20%);
-                width: 100%;
-            }
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .pub-poster-container:hover {
-            transform: scale(1.1) rotate(2deg);
+            transform: translateY(-5px) scale(1.05);
             border-color: var(--cv-accent);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
         }
 
         /* The PDF Preview "Hack" */
@@ -301,13 +286,24 @@
             height: 1130px;
             /* A4 aspect ratio */
             border: none;
-            transform: scale(0.15);
-            /* Scale down to fit 120x160ish */
-            transform-origin: 0 0;
+            transform: scale(0.141);
+            /* Scale down to fit 160px height exactly */
+            transform-origin: center center;
             pointer-events: none;
             position: absolute;
-            top: 0;
-            left: 0;
+            left: 50%;
+            top: 50%;
+            margin-left: -400px;
+            margin-top: -565px;
+        }
+
+        .pub-preview-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            position: relative;
+            z-index: 1;
         }
 
         .pub-poster-overlay {
@@ -320,6 +316,32 @@
             justify-content: flex-end;
             padding-bottom: 12px;
             z-index: 2;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .pub-poster-container:hover .pub-poster-overlay {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .pub-entry {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .pub-poster-container {
+                width: 140px;
+                height: 185px;
+            }
+
+            .pub-poster-iframe {
+                transform: scale(0.163);
+                /* Adjusted for 185px height */
+            }
         }
 
         .pub-poster-overlay span {
@@ -336,6 +358,7 @@
             margin-bottom: 4px;
             color: var(--cv-accent);
         }
+
 
         .pub-tag {
             display: inline-block;
@@ -743,6 +766,16 @@
                         to
                         outperform ChatGPT-4 in cultural relevance.</div>
                 </div>
+                <div class="pub-poster-container"
+                    onclick="window.open('https://dl.acm.org/doi/10.1145/3715335.3735478', '_blank')">
+                    <img class="pub-preview-img" src="assets/publications/kahani.png" alt="KAHANI">
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Paper</span>
+                    </div>
+                </div>
             </div>
 
             <div class="pub-entry">
@@ -758,10 +791,119 @@
                         built
                         via a culturally grounded, bottom-up approach.</div>
                 </div>
+                <div class="pub-poster-container" onclick="window.open('https://arxiv.org/pdf/2509.21294', '_blank')">
+                    <img class="pub-preview-img" src="assets/publications/updesh.png" alt="Updesh">
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Paper</span>
+                    </div>
+                </div>
             </div>
 
-            <div style="text-align: center; color: #555; font-size: 0.8rem; margin-top: 2rem;">+ Additional
-                Peer-Reviewed Research in Object Detection, MRI Analytics & Sentimental Analysis</div>
+            <div class="pub-entry">
+                <div class="pub-main">
+                    <span class="pub-tag">Under Review</span>
+                    <h3 class="pub-title">Towards a Community-Centric Approach to Measuring Cultural Representation in
+                        AI Image Generation</h3>
+                    <div class="pub-authors">Nari Johnson, <strong>Deepthi Sudharsan</strong>, Hamna, et al.</div>
+                    <div class="pub-tldr">Argues that AI measurement often ignores impacted communities, using case
+                        studies to show how lived experience shapes more meaningful metrics.</div>
+                </div>
+                <div class="pub-poster-container">
+                    <img class="pub-preview-img" src="assets/publications/community.png" alt="Community Centric AI">
+                </div>
+            </div>
+
+            <div class="pub-entry">
+                <div class="pub-main">
+                    <span class="pub-tag">Preprint</span>
+                    <h3 class="pub-title"><a
+                            href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/longtail.pdf"
+                            target="_blank">To Make Text-to-Image Models that Work for Marginalized Communities, We Need
+                            New Measurement Practices for the Long Tail</a></h3>
+                    <div class="pub-authors">Nari Johnson, Hamna, <strong>Deepthi Sudharsan</strong>, et al.</div>
+                    <div class="pub-tldr">Highlights how current T2I metrics fail the long tail of low-resource concepts
+                        and calls for community-centered methods.</div>
+                </div>
+                <div class="pub-poster-container"
+                    onclick="window.open('https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/longtail.pdf', '_blank')">
+                    <img class="pub-preview-img" src="assets/publications/position.png" alt="Long Tail Measurement">
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Paper</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-entry">
+                <div class="pub-main">
+                    <span class="pub-tag">DA&CI 2022</span>
+                    <h3 class="pub-title"><a
+                            href="https://www.researchgate.net/publication/374256540_Coconut_Tree_Detection_Using_Deep_Learning_Models"
+                            target="_blank">Coconut Tree Detection using Deep Learning Models</a></h3>
+                    <div class="pub-authors"><strong>Deepthi Sudharsan</strong>, K. Harish, U. Asmitha, et al.</div>
+                    <div class="pub-tldr">Optimized object detection models using IceVision framework for coconut tree
+                        detection and segmentation.</div>
+                </div>
+                <div class="pub-poster-container"
+                    onclick="window.open('https://www.researchgate.net/publication/374256540_Coconut_Tree_Detection_Using_Deep_Learning_Models', '_blank')">
+                    <img class="pub-preview-img" src="assets/publications/coconut.png" alt="Coconut Tree Detection">
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Paper</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-entry">
+                <div class="pub-main">
+                    <span class="pub-tag">ISCMM 2021</span>
+                    <h3 class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-981-19-0151-5_4"
+                            target="_blank">Brain Disorder Detection Using MRI Data</a></h3>
+                    <div class="pub-authors"><strong>Deepthi Sudharsan</strong>, S Isha Indhu, Kavya S Kumar, et al.
+                    </div>
+                    <div class="pub-tldr">Developed ML/DL models for diagnosis of Schizophrenia and Alzheimer's using
+                        MRI features.</div>
+                </div>
+                <div class="pub-poster-container"
+                    onclick="window.open('https://link.springer.com/chapter/10.1007/978-981-19-0151-5_4', '_blank')">
+                    <img class="pub-preview-img" src="assets/publications/brain.png" alt="Brain Disorder Detection">
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Paper</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-entry">
+                <div class="pub-main">
+                    <span class="pub-tag">FIRE 2021</span>
+                    <h3 class="pub-title"><a href="https://ceur-ws.org/Vol-3159/T2-3.pdf" target="_blank">Rhetorical
+                            Role Labelling of Legal Case Documents</a></h3>
+                    <div class="pub-authors"><strong>Deepthi Sudharsan</strong>, U Asmitha, B Premjith, KP Soman</div>
+                    <div class="pub-tldr">Implemented DistilRoBERTa based sentence embeddings for rhetorical role
+                        assignment in legal documents.</div>
+                </div>
+                <div class="pub-poster-container"
+                    onclick="window.open('https://ceur-ws.org/Vol-3159/T2-3.pdf', '_blank')">
+                    <img class="pub-preview-img" src="assets/publications/legal.png" alt="Legal Data Analysis">
+                    <div class="pub-poster-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"></path>
+                        </svg>
+                        <span>View Paper</span>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- Awards -->
