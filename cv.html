@@ -286,15 +286,12 @@
             height: 1130px;
             /* A4 aspect ratio */
             border: none;
-            transform: scale(0.141);
-            /* Scale down to fit 160px height exactly */
-            transform-origin: center center;
-            pointer-events: none;
             position: absolute;
             left: 50%;
             top: 50%;
-            margin-left: -400px;
-            margin-top: -565px;
+            transform: translate(-50%, -50%) scale(0.141);
+            transform-origin: center center;
+            pointer-events: none;
         }
 
         .pub-preview-img {
@@ -339,7 +336,7 @@
             }
 
             .pub-poster-iframe {
-                transform: scale(0.163);
+                transform: translate(-50%, -50%) scale(0.163);
                 /* Adjusted for 185px height */
             }
         }

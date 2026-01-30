@@ -103,11 +103,52 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             transition: transform 0.2s, background 0.2s;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
         }
 
         .paper-card:hover {
             background: rgba(255, 255, 255, 0.08);
             transform: translateY(-2px);
+        }
+
+        .paper-content {
+            flex: 1;
+        }
+
+        .paper-preview-container {
+            flex-shrink: 0;
+            width: 120px;
+            height: 160px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .paper-preview-iframe {
+            width: 800px;
+            height: 1130px;
+            border: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0.141);
+            transform-origin: center center;
+            pointer-events: none;
+        }
+
+        .paper-preview-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         .paper-header {
@@ -781,7 +822,8 @@
                 citation: "Chitale, P. A., et al. (2025). The role of synthetic data in Multilingual, Multi-cultural AI systems: Lessons from Indic Languages. arXiv:2509.21294.",
                 link: "https://arxiv.org/pdf/2509.21294",
                 huggingface_link: "https://huggingface.co/datasets/microsoft/Updesh_beta",
-                aikosh_link: "https://aikosh.indiaai.gov.in/home/datasets/details/updesh.html"
+                aikosh_link: "https://aikosh.indiaai.gov.in/home/datasets/details/updesh.html",
+                image: "assets/publications/updesh.png"
             },
             {
                 title: "Towards a Community-Centric Approach to Measuring Cultural Representation in AI Image Generation: Lessons from Two Case Studies",
@@ -791,7 +833,8 @@
                 tldr: "This paper argues that AI measurement often ignores the perspectives of impacted communities. Focusing on “cultural appropriateness” in text-to-image models, we worked with blind/low vision individuals in the UK and residents from two Indian states. By involving these communities in defining what should be measured, they showed how lived experience can shape more meaningful metrics. The work highlights opportunities for HCI research to embed community expertise into measuring generative AI systems.",
                 abstract: "This paper argues that AI measurement often ignores the perspectives of impacted communities. Focusing on “cultural appropriateness” in text-to-image models, we worked with blind/low vision individuals in the UK and residents from two Indian states. By involving these communities in defining what should be measured, they showed how lived experience can shape more meaningful metrics. The work highlights opportunities for HCI research to embed community expertise into measuring generative AI systems.",
                 citation: "Johnson, N., et al. (2025). Towards a Community-Centric Approach to Measuring Cultural Representation in AI Image Generation. Under Review.",
-                link: ""
+                link: "",
+                image: "assets/publications/community.png"
             },
             {
                 title: "Position: To Make Text-to-Image Models that Work for Marginalized Communities, We Need New Measurement Practices for the Long Tail",
@@ -801,7 +844,8 @@
                 tldr: "Current text-to-image (T2I) evaluation metrics fail to capture the accuracy of low-resource, culturally specific concepts important to marginalized communities. This paper highlights challenges in validating these metrics using two community-based case studies, revealing issues like the need for community knowledge and difficulty in capturing nuanced image quality. It calls for new, community-centered measurement methods tailored to long-tail concepts.",
                 abstract: "Current text-to-image (T2I) evaluation metrics fail to capture the accuracy of low-resource, culturally specific concepts important to marginalized communities. This paper highlights challenges in validating these metrics using two community-based case studies, revealing issues like the need for community knowledge and difficulty in capturing nuanced image quality. It calls for new, community-centered measurement methods tailored to long-tail concepts.",
                 citation: "Johnson, N., et al. (2025). Position: To Make Text-to-Image Models that Work for Marginalized Communities. Preprint.",
-                link: "https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/longtail.pdf"
+                link: "https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/longtail.pdf",
+                image: "assets/publications/position.png"
             },
             {
                 title: "ELR-1000: A Community-Generated Dataset for Endangered Indic Indigenous Languages",
@@ -833,7 +877,8 @@
                 tldr: "Developed Kahani, a culturally-nuanced visual storytelling tool utilizing GPT-4 Turbo and Stable Diffusion XL (SDXL) with Chain of Thought (CoT) prompting, to generate culturally nuanced visual stories for non-Western cultures. Our tool outperformed ChatGPT-4 (with DALL-E3) in 27 out of 36 user comparisons for cultural relevance and specificity.",
                 abstract: "Developed Kahani, a culturally-nuanced visual storytelling tool utilizing GPT-4 Turbo and Stable Diffusion XL (SDXL) with Chain of Thought (CoT) prompting, to generate culturally nuanced visual stories for non-Western cultures. Our tool outperformed ChatGPT-4 (with DALL-E3) in 27 out of 36 user comparisons for cultural relevance and specificity.",
                 citation: "Hamna, et al. (2025). KAHANI: Culturally-Nuanced Visual Storytelling Pipeline for Non-Western Cultures. COMPASS 2025.",
-                link: "https://dl.acm.org/doi/10.1145/3715335.3735478"
+                link: "https://dl.acm.org/doi/10.1145/3715335.3735478",
+                image: "assets/publications/kahani.png"
             },
             {
                 title: "Coconut Tree Detection using Deep Learning Models",
@@ -843,7 +888,8 @@
                 tldr: "Implemented and optimized object detection models (Faster RCNN, DETR, YOLOv5, RetinaNet, VFNet) with the help of IceVision framework for coconut tree detection and segmentation after experimenting with training these object detection models on low and high-resolution datasets.",
                 abstract: "Implemented and optimized object detection models (Faster RCNN, DETR, YOLOv5, RetinaNet, VFNet) with the help of IceVision framework for coconut tree detection and segmentation after experimenting with training these object detection models on low and high-resolution datasets.",
                 citation: "Sudharsan, D., et al. (2022). Coconut Tree Detection Using Deep Learning Models. DA&CI 2022.",
-                link: "https://www.researchgate.net/publication/374256540_Coconut_Tree_Detection_Using_Deep_Learning_Models"
+                link: "https://www.researchgate.net/publication/374256540_Coconut_Tree_Detection_Using_Deep_Learning_Models",
+                image: "assets/publications/coconut.png"
             },
             {
                 title: "Analysis of Machine Learning and Deep Learning Algorithms for Detection of Brain Disorders Using MRI Data",
@@ -853,7 +899,8 @@
                 tldr: "Developed and evaluated Machine Learning and Deep Learning models (SVM, Decision Tree, Random Forest, Gaussian Naive Bayes, 1D-CNN) for the preemptive diagnosis of Schizophrenia (Kaggle dataset) and Alzheimer's (TADPOLE dataset) using MRI features. In this work, we achieved optimized classification performance, with Gaussian Naive Bayes excelling in Schizophrenia detection and Random Forest in Alzheimer's.",
                 abstract: "Developed and evaluated Machine Learning and Deep Learning models (SVM, Decision Tree, Random Forest, Gaussian Naive Bayes, 1D-CNN) for the preemptive diagnosis of Schizophrenia (Kaggle dataset) and Alzheimer's (TADPOLE dataset) using MRI features. In this work, we achieved optimized classification performance, with Gaussian Naive Bayes excelling in Schizophrenia detection and Random Forest in Alzheimer's.",
                 citation: "Sudharsan, D., et al. (2021). Analysis of Machine Learning and Deep Learning Algorithms for Detection of Brain Disorders Using MRI Data. ISCMM 2021.",
-                link: "https://link.springer.com/chapter/10.1007/978-981-19-0151-5_4"
+                link: "https://link.springer.com/chapter/10.1007/978-981-19-0151-5_4",
+                image: "assets/publications/brain.png"
             },
             {
                 title: "DistilRoBERTa Based Sentence Embedding for Rhetorical Role Labelling of Legal Case Documents",
@@ -863,7 +910,8 @@
                 tldr: "Contributed to the AILA 2021 shared task by implementing an Artificial Neural Network (ANN) for automated rhetorical role assignment in legal documents. This solution achieved 85.18% validation accuracy and 30.9% testing precision, demonstrating a practical approach to enhance information retrieval and systematic organization in the Indian legal system.",
                 abstract: "Contributed to the AILA 2021 shared task by implementing an Artificial Neural Network (ANN) for automated rhetorical role assignment in legal documents. This solution achieved 85.18% validation accuracy and 30.9% testing precision, demonstrating a practical approach to enhance information retrieval and systematic organization in the Indian legal system.",
                 citation: "Sudharsan, D., et al. (2021). DistilRoBERTa Based Sentence Embedding for Rhetorical Role Labelling of Legal Case Documents. FIRE 2021.",
-                link: "https://ceur-ws.org/Vol-3159/T2-3.pdf"
+                link: "https://ceur-ws.org/Vol-3159/T2-3.pdf",
+                image: "assets/publications/legal.png"
             }
         ];
 
@@ -878,33 +926,43 @@
                     <div class="papers-list">
                         ${sortedPapers.map((paper, index) => `
                             <div class="paper-card">
-                                <div class="paper-header">
-                                    <h4 class="paper-title">${paper.title}</h4>
-                                    <span class="paper-venue" style="display:block; font-size: 0.9em; font-weight: normal; color: #ffeb3b; margin-top: 4px;">${paper.venue}</span>
-                                    <div class="paper-authors" style="font-size: 0.85rem; color: #aaa; margin-top: 4px;">${paper.authors}</div>
-                                </div>
-                                <p class="paper-tldr"><strong>TL;DR:</strong> ${paper.tldr}</p>
-                                
-                                <div class="paper-actions">
-                                    <button class="action-btn" onclick="copyCitation('${index}')">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                                        Copy Citation
-                                    </button>
+                                <div class="paper-content">
+                                    <div class="paper-header">
+                                        <h4 class="paper-title">${paper.title}</h4>
+                                        <span class="paper-venue" style="display:block; font-size: 0.9em; font-weight: normal; color: #ffeb3b; margin-top: 4px;">${paper.venue}</span>
+                                        <div class="paper-authors" style="font-size: 0.85rem; color: #aaa; margin-top: 4px;">${paper.authors}</div>
+                                    </div>
+                                    <p class="paper-tldr"><strong>TL;DR:</strong> ${paper.tldr}</p>
+                                    
+                                    <div class="paper-actions">
+                                        <button class="action-btn" onclick="copyCitation('${index}')">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                            Copy Citation
+                                        </button>
 
-                                    ${paper.link ? `<a href="${paper.link}" target="_blank" class="action-btn link-btn">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                        View Paper
-                                    </a>` : ''}
-                                    ${paper.poster ? `<a href="${paper.poster}" target="_blank" class="action-btn link-btn">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                                        View Poster
-                                    </a>` : ''}
-                                    ${paper.huggingface_link ? `<a href="${paper.huggingface_link}" target="_blank" class="action-btn link-btn">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg> Hugging Face
-                                    </a>` : ''}
-                                    ${paper.aikosh_link ? `<a href="${paper.aikosh_link}" target="_blank" class="action-btn link-btn">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg> AIKosh
-                                    </a>` : ''}
+                                        ${paper.link ? `<a href="${paper.link}" target="_blank" class="action-btn link-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                            View Paper
+                                        </a>` : ''}
+                                        ${paper.poster ? `<a href="${paper.poster}" target="_blank" class="action-btn link-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                                            View Poster
+                                        </a>` : ''}
+                                        ${paper.huggingface_link ? `<a href="${paper.huggingface_link}" target="_blank" class="action-btn link-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg> Hugging Face
+                                        </a>` : ''}
+                                        ${paper.aikosh_link ? `<a href="${paper.aikosh_link}" target="_blank" class="action-btn link-btn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg> AIKosh
+                                        </a>` : ''}
+                                    </div>
+                                </div>
+
+                                <div class="paper-preview-container" onclick="${paper.link ? `window.open('${paper.link}', '_blank')` : (paper.poster ? `window.open('${paper.poster}', '_blank')` : '')}" style="${(paper.link || paper.poster) ? 'cursor: pointer;' : ''}">
+                                    ${paper.poster ? `
+                                        <iframe class="paper-preview-iframe" src="${paper.poster}#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                                    ` : (paper.image ? `
+                                        <img class="paper-preview-img" src="${paper.image}" alt="${paper.title}">
+                                    ` : '')}
                                 </div>
                             </div>
                         `).join('')}
