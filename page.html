@@ -637,7 +637,8 @@
                 tldr: "Proposed an agentic, human-in-the-loop framework for generating culturally grounded visual stories using coordinated LLM agents and text-to-image models, enabling coherent, character-consistent, and community-aligned story-based learning for learners in the Global South.",
                 abstract: "Proposed an agentic, human-in-the-loop framework for generating culturally grounded visual stories using coordinated LLM agents and text-to-image models, enabling coherent, character-consistent, and community-aligned story-based learning for learners in the Global South.",
                 citation: "Hamna, et al. (2026). Agentic Framework for Culturally Grounded Visual Story Generation. AAAI EGSAI 2026.",
-                link: ""
+                link: "",
+                poster: "assets/publications/AAAI26.pdf"
             },
             {
                 title: "The Role of Synthetic Data in Multilingual, Multicultural AI systems: Lessons from Indic languages",
@@ -679,7 +680,8 @@
                 tldr: "In this work, we propose our ELR-1000 benchmark dataset, which contains 1,060 traditional recipes from rural Eastern India in 10 endangered languages, collected via a mobile tool for low-digital-literacy contributors. It evaluates LLM translation performance, showing that cultural and low-resource contexts remain challenging, but targeted background/context greatly improves results. The dataset is released to promote equitable, culturally aware language technologies.",
                 abstract: "In this work, we propose our ELR-1000 benchmark dataset, which contains 1,060 traditional recipes from rural Eastern India in 10 endangered languages, collected via a mobile tool for low-digital-literacy contributors. It evaluates LLM translation performance, showing that cultural and low-resource contexts remain challenging, but targeted background/context greatly improves results. The dataset is released to promote equitable, culturally aware language technologies.",
                 citation: "Joshi, N., et al. (2025). ELR-1000: A Community-Generated Dataset for Endangered Indic Indigenous Languages. IJCNLP - AACL 2025.",
-                link: "https://www.arxiv.org/pdf/2512.01077"
+                link: "https://www.arxiv.org/pdf/2512.01077",
+                poster: "assets/publications/ELR-1000.pdf"
             },
             {
                 title: "What’s Not on the Plate? Rethinking Food Computing through Indigenous Indian Datasets",
@@ -689,7 +691,8 @@
                 tldr: "A multimodal dataset of 1000 indigenous recipes from 10 endangered language communities in rural India was collected using the Karya app. Featuring texts, images, and audios contributed by first-time digital workers, this work promotes culturally inclusive, community-authored data for AI. It advances ethical, scalable food computing and opens pathways in cultural AI, public health, and sustainable agriculture.",
                 abstract: "A multimodal dataset of 1000 indigenous recipes from 10 endangered language communities in rural India was collected using the Karya app. Featuring texts, images, and audios contributed by first-time digital workers, this work promotes culturally inclusive, community-authored data for AI. It advances ethical, scalable food computing and opens pathways in cultural AI, public health, and sustainable agriculture.",
                 citation: "Gogoi, P., et al. (2025). What’s Not on the Plate? Rethinking Food Computing through Indigenous Indian Datasets. MMFood 2025.",
-                link: "https://dl.acm.org/doi/10.1145/3746264.3760498"
+                link: "https://dl.acm.org/doi/10.1145/3746264.3760498",
+                poster: "assets/publications/What's Not on the Plate Rethinking Food Computing through Indigenous Indian Datasets (6).pdf"
             },
             {
                 title: "KAHANI: Culturally-Nuanced Visual Storytelling Pipeline for Non-Western Cultures",
@@ -760,6 +763,10 @@
                                     ${paper.link ? `<a href="${paper.link}" target="_blank" class="action-btn link-btn">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                         View Paper
+                                    </a>` : ''}
+                                    ${paper.poster ? `<a href="${paper.poster}" target="_blank" class="action-btn link-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                                        View Poster
                                     </a>` : ''}
                                     ${paper.huggingface_link ? `<a href="${paper.huggingface_link}" target="_blank" class="action-btn link-btn">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg> Hugging Face
