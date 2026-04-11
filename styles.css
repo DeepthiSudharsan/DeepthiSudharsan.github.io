@@ -479,7 +479,7 @@ body::before {
     gap: 1.5rem;
     padding: 0 4rem;
     font-size: 3rem;
-    color: #333;
+    color: #ffd700;
     font-weight: 700;
     text-transform: uppercase;
     transition: all 0.3s;
@@ -495,12 +495,11 @@ body::before {
 .ticker-logo {
     height: 40px;
     width: auto;
-    filter: grayscale(1) brightness(0.5);
     transition: all 0.3s;
 }
 
 .ticker__item:hover .ticker-logo {
-    filter: grayscale(0) brightness(1);
+    transform: scale(1.1);
 }
 
 @keyframes ticker {
