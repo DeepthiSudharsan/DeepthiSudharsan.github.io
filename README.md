@@ -3,7 +3,7 @@
 Welcome to my portfolio! This repository contains the source code for my personal website, showcasing my journey as an applied AI engineer.
 
 ## 👋 About Me
-I am **Deepthi Sudharsan**, an **applied AI engineer** focused on bridging **AI innovation** and **real product impact**. I am an incoming AI Engineer at RiskSpan, with prior experience as a Data Scientist at InvestCloud, Research Fellow at Microsoft Research India, Technology Consulting Intern at PwC India, and MLE Intern at TMLC. I hold a B.Tech in Artificial Intelligence.
+I am **Deepthi Sudharsan**, an **applied AI engineer** focused on bridging **AI innovation** and **real product impact**. I am an AI Engineer at RiskSpan, with prior experience as a Data Scientist at InvestCloud, Research Fellow at Microsoft Research India, Technology Consulting Intern at PwC India, and MLE Intern at TMLC. I hold a B.Tech in Artificial Intelligence.
 
 ## 🚀 Built With
 This portfolio was built using **Google Antigravity**, a powerful agentic AI coding assistant.
