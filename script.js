@@ -32,7 +32,9 @@ const galleryImages = [
     'gallery_image_8.jpeg', 'gallery_image_9.jpeg', 'gallery_image_10.jpeg', 'gallery_image_11.jpeg',
     'gallery_image_12.jpeg', 'gallery_image_13.jpeg', 'gallery_image_14.png', 'gallery_image_15.png',
     'gallery_image_16.jpeg', 'gallery_image_17.jpeg', 'gallery_image_18.jpeg', 'gallery_image_19.jpeg',
-    'gallery_image_20.png', 'gallery_image_21.jpeg'
+    'gallery_image_20.png', 'gallery_image_21.jpeg', 'gallery_image_23.jpeg',
+    'gallery_image_24.jpeg', 'gallery_image_25.jpeg', 'gallery_image_26.jpeg', 'gallery_image_27.jpeg',
+    'gallery_image_28.jpeg', 'gallery_image_29.jpeg', 'gallery_image_30.jpeg', 'gallery_image_31.jpeg'
 ];
 
 function init() {
