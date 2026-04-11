@@ -7,7 +7,7 @@
     --border-color: rgba(255, 255, 255, 0.1);
     --card-width: 200px;
     --card-height: 300px;
-    --bg-image: url('assets/backgrounds/bg-dark.png');
+    --bg-image: url('assets/backgrounds/bg-medium.png');
     --highlight-gradient: linear-gradient(135deg, #fff 30%, var(--accent-color) 100%);
 }
 
